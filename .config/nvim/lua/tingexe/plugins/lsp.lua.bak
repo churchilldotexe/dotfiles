@@ -1,0 +1,291 @@
+if true then
+  return {}
+end
+
+return {
+  -- tools
+  {
+    'williamboman/mason.nvim',
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, {
+        'luacheck',
+        'shellcheck',
+        'shfmt',
+        'tailwindcss-language-server',
+        'typescript-language-server',
+        'css-lsp',
+        'biome',
+        'emmet-ls',
+      })
+    end,
+  },
+
+  -- lsp servers
+  {
+    'neovim/nvim-lspconfig',
+    opts = {
+      inlay_hints = { enabled = true },
+      ---@type lspconfig.options
+      servers = {
+        cssls = {},
+        tailwindcss = {
+          cmd = { 'tailwindcss-language-server', '--stdio' },
+          root_dir = function(...)
+            return require('lspconfig.util').root_pattern(
+              'tailwind.config.js',
+              'tailwind.config.cjs',
+              'tailwind.config.mjs',
+              'tailwind.config.ts',
+              'postcss.config.js',
+              'postcss.config.cjs',
+              'postcss.config.mjs',
+              'postcss.config.ts',
+              'package.json',
+              'node_modules',
+              '.git'
+            )(...)
+          end,
+          filetypes = {
+            'aspnetcorerazor',
+            'astro',
+            'astro-markdown',
+            'blade',
+            'clojure',
+            'django-html',
+            'htmldjango',
+            'edge',
+            'eelixir',
+            'elixir',
+            'ejs',
+            'erb',
+            'eruby',
+            'gohtml',
+            'gohtmltmpl',
+            'haml',
+            'handlebars',
+            'hbs',
+            'html',
+            'htmlangular',
+            'html-eex',
+            'heex',
+            'jade',
+            'leaf',
+            'liquid',
+            'markdown',
+            'mdx',
+            'mustache',
+            'njk',
+            'nunjucks',
+            'php',
+            'razor',
+            'slim',
+            'twig',
+            'css',
+            'less',
+            'postcss',
+            'sass',
+            'scss',
+            'stylus',
+            'sugarss',
+            'javascript',
+            'javascriptreact',
+            'reason',
+            'rescript',
+            'typescript',
+            'typescriptreact',
+            'vue',
+            'svelte',
+            'templ',
+          },
+          settings = {
+            tailwindCSS = {
+              classAttributes = { 'class', 'className', 'class:list', 'classList', 'ngClass' },
+              includeLanguages = {
+                eelixir = 'html-eex',
+                eruby = 'erb',
+                htmlangular = 'html',
+                templ = 'html',
+              },
+              lint = {
+                cssConflict = 'warning',
+                invalidApply = 'error',
+                invalidConfigPath = 'error',
+                invalidScreen = 'error',
+                invalidTailwindDirective = 'error',
+                invalidVariant = 'error',
+                recommendedVariantOrder = 'warning',
+              },
+              validate = true,
+            },
+          },
+        },
+        emmet_ls = {
+          cmd = { 'emmet-ls', '--stdio' },
+          filetypes = {
+            'astro',
+            'css',
+            'eruby',
+            'html',
+            'htmldjango',
+            'javascriptreact',
+            'less',
+            'pug',
+            'sass',
+            'scss',
+            'svelte',
+            'typescriptreact',
+            'vue',
+            'htmlangular',
+          },
+          root_dir = function(...)
+            return require('lspconfig.util').root_pattern '.git'(...)
+          end,
+          single_file_support = true,
+        },
+        biome = {
+          cmd = { 'biome', 'lsp-proxy' },
+          filetypes = {
+            'javascript',
+            'javascriptreact',
+            'json',
+            'jsonc',
+            'typescript',
+            'typescript.tsx',
+            'typescriptreact',
+            'astro',
+            'svelte',
+            'vue',
+            'css',
+          },
+          -- root_dir = util.root_pattern("biome.json", "biome.jsonc"),
+          root_dir = function(...)
+            return require('lspconfig.util').root_pattern('biome.json', 'biome.jsonc')(...)
+          end,
+          single_file_support = false,
+          docs = {
+            description = [[
+            https://biomejs.dev
+
+            Toolchain of the web. [Successor of Rome](https://biomejs.dev/blog/annoucing-biome).
+
+            ```sh
+            npm install [-g] @biomejs/biome
+            ```
+            ]],
+            default_config = {
+              root_dir = [[root_pattern('biome.json', 'biome.jsonc')]],
+            },
+          },
+        },
+        astro = {
+          cmd = { 'astro-ls', '--stdio' },
+          filetypes = { 'astro' },
+          init_options = {
+            typescript = {},
+          },
+          root_dir = function(...)
+            return require('lspconfig.util').root_pattern('package.json', 'tsconfig.json', 'jsconfig.json', '.git')(...)
+          end,
+        },
+        --[[       tsserver = {
+          root_dir = function(...)
+            return require("lspconfig.util").root_pattern(".git")(...)
+          end,
+          single_file_support = false,
+          settings = {
+            typescript = {
+              inlayHints = {
+                includeInlayParameterNameHints = "literal",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayVariableTypeHints = false,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayEnumMemberValueHints = true,
+              },
+            },
+            javascript = {
+              inlayHints = {
+                includeInlayParameterNameHints = "all",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayVariableTypeHints = true,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayEnumMemberValueHints = true,
+              },
+            },
+          },
+        },
+        ]]
+        html = {},
+        lua_ls = {
+          -- enabled = false,
+          single_file_support = true,
+          settings = {
+            Lua = {
+              workspace = {
+                checkThirdParty = false,
+              },
+              completion = {
+                workspaceWord = true,
+                callSnippet = 'Both',
+              },
+              misc = {
+                parameters = {
+                  -- "--log-level=trace",
+                },
+              },
+              hint = {
+                enable = true,
+                setType = false,
+                paramType = true,
+                paramName = 'Disable',
+                semicolon = 'Disable',
+                arrayIndex = 'Disable',
+              },
+              doc = {
+                privateName = { '^_' },
+              },
+              type = {
+                castNumberToInteger = true,
+              },
+              diagnostics = {
+                disable = { 'incomplete-signature-doc', 'trailing-space' },
+                -- enable = false,
+                groupSeverity = {
+                  strong = 'Warning',
+                  strict = 'Warning',
+                },
+                groupFileStatus = {
+                  ['ambiguity'] = 'Opened',
+                  ['await'] = 'Opened',
+                  ['codestyle'] = 'None',
+                  ['duplicate'] = 'Opened',
+                  ['global'] = 'Opened',
+                  ['luadoc'] = 'Opened',
+                  ['redefined'] = 'Opened',
+                  ['strict'] = 'Opened',
+                  ['strong'] = 'Opened',
+                  ['type-check'] = 'Opened',
+                  ['unbalanced'] = 'Opened',
+                  ['unused'] = 'Opened',
+                },
+                unusedLocalExclude = { '_*' },
+              },
+              format = {
+                enable = false,
+                defaultConfig = {
+                  indent_style = 'space',
+                  indent_size = '2',
+                  continuation_indent_size = '2',
+                },
+              },
+            },
+          },
+        },
+      },
+      setup = {},
+    },
+  },
+}
