@@ -31,3 +31,6 @@ alias txsrc='tmux source ~/.config/tmux/tmux.conf'
 alias txkill='tmux kill-server'
 alias txres='tmux -u a'
 alias tx='tmux -u'
+
+# lazygit
+alias lg='lazygit'
