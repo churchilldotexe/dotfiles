@@ -148,6 +148,22 @@ return {
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
 
+        phpactor = {
+          cmd = { 'phpactor', 'language-server' },
+          filetypes = { 'php' },
+          root_dir = function(...)
+            return require('lspconfig.util').root_pattern('composer.json', '*.php', '.git')(...)
+          end,
+        },
+
+        intelephense = {
+          cmd = { 'intelephense', '--stdio' },
+          filetypes = { 'php' },
+          root_dir = function(...)
+            return require('lspconfig.util').root_pattern('composer.json', '*.php', '.git')(...)
+          end,
+        },
+
         eslint = {
           cmd = { 'vscode-eslint-language-server', '--stdio' },
           filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx', 'vue', 'svelte', 'astro' },
@@ -317,7 +333,9 @@ return {
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-
+        'phpcs',
+        'phpactor',
+        'php-cs-fixer',
         'astro-language-server',
         -- 'eslint',
         'eslint_d',
@@ -410,6 +428,7 @@ return {
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
         --
         --
+        php = { 'php_cs_fixer', stop_after_first = true },
         prisma = { 'prettierd', 'prettier', stop_after_first = true },
         html = { 'prettier' },
         json = { 'prettier' },

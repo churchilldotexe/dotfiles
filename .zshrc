@@ -59,3 +59,7 @@ esac
 
 # Turso
 export PATH="$PATH:/home/tingexe/.turso"
+
+
+#php composer
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"

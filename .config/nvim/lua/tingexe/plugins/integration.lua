@@ -10,7 +10,6 @@ return {
     },
     config = function()
       require('neotest').setup {
-        ...,
         adapters = {
           require 'neotest-vitest' {
             -- Filter directories when searching for test files. Useful in large projects (see Filter directories notes).
