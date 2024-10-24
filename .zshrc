@@ -10,7 +10,8 @@
 export DISPLAY=:0
 export BROWSER=~/.local/bin/wsl-browser
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# uncomment if you're using homebrew
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 
 # history setup
@@ -26,11 +27,15 @@ setopt hist_verify
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
+# uncomment if you're using ubuntu with homebrew
+# source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # ---- oh my posh ---- # 
+export PATH=$PATH:/home/ting/.local/bin
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/ting.toml)"
 
 
@@ -45,6 +50,8 @@ alias cd="z"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
+# Node version manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

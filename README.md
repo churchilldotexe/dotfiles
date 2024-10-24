@@ -7,20 +7,19 @@ sudo pacman -Syu zsh
 sudo pacman -Syu stow
 sudo pacman -Syu git
 sudo pacman -Syu curl
-curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
-sudo pacman -Syu eza
+sudo pacman -Syu eza zoxide
 ```
 
 - `zsh` - for shell
 - `git` - __required__ in order to retrieve the DotFiles from remote git repo (github)
 - `stow` - in order to symlink the dotfiles to where the configs are located
-- `curl zoxide` - for a better `cd` command since it is already configure in .zshrc, only need to install it 
+- `zoxide` - for a better `cd` command since it is already configure in .zshrc, only need to install it 
 - `eza` - a better looking cd, also configured with .zshrc so only need to install 
 
 ## Usage 
 
 ```bash 
-git clone "this repo" ~/dotfiles/
+git clone "https://github.com/churchilldotexe/dotfiles" ~/dotfiles/
 
 cd ~/dotfiles 
 
