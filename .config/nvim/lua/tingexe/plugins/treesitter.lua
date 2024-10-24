@@ -23,6 +23,7 @@ return { -- Highlight, edit, and navigate code
       'diff',
       'html',
       'luadoc',
+      'regex',
       'markdown',
       'markdown_inline',
       'query',
