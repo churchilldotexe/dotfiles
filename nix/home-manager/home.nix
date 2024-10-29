@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./programs
+    ./apps
 
   ];
   home.username = "ting";

@@ -1,3 +1,16 @@
+#------------------------------------#
+# Show the path of your Nix-installed zsh
+# which zsh
+
+# Add it to /etc/shells (needs sudo)
+# echo "$(which zsh)" | sudo tee -a /etc/shells
+
+# Now you can change your shell
+# chsh -s $(which zsh)
+#-----------------------------------#
+
+
+
 { config, pkgs, lib, ... }:
 
 {
