@@ -2,6 +2,10 @@
 # ---
 # source zsh
 alias zsrc='source ~/.zshrc'
+
+# update and upgrade
+alias apt-sync='sudo bash -c "apt update && apt upgrade"'
+
 #
 alias k="kubectl"
 alias h="helm"

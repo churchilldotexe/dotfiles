@@ -17,9 +17,30 @@ return {
   },
   {
     'MeanderingProgrammer/render-markdown.nvim',
-    opts = {},
-    config = function()
-      require('render-markdown').setup {}
+    opts = {
+      code = {
+        sign = false,
+        width = 'block',
+        right_pad = 1,
+      },
+      heading = {
+        sign = false,
+        icons = {},
+      },
+    },
+    ft = { 'markdown', 'norg', 'rmd', 'org' },
+    config = function(_, opts)
+      require('render-markdown').setup(opts)
+      vim.keymap.set('n', '<leader>um', function()
+        local m = require 'render-markdown'
+        local enabled = require('render-markdown.state').enabled
+
+        if enabled then
+          m.disable()
+        else
+          m.enable()
+        end
+      end, { desc = 'Toggle Render Markdown' })
     end,
     -- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins

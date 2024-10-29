@@ -8,12 +8,13 @@ return {
     end,
     ]]
   },
-  {
+  --[[{
     'razak17/tailwind-fold.nvim',
     opts = {},
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     ft = { 'html', 'svelte', 'astro', 'vue', 'typescriptreact', 'javascriptreact', 'php', 'blade' },
-  },
+  }, 
+  ]]
   {
     -- High-performance color highlighter
     'norcalli/nvim-colorizer.lua',

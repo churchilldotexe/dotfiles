@@ -148,6 +148,14 @@ return {
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
 
+        marksman = {
+          cmd = { 'marksman', 'server' },
+          filetypes = { 'markdown', 'markdown.mdx' },
+          root_dir = function(...)
+            return require('lspconfig.util').root_pattern('.marksman.toml', '*.mdx', '*.md')(...)
+          end,
+          single_file_support = true,
+        },
         phpactor = {
           cmd = { 'phpactor', 'language-server' },
           filetypes = { 'php' },
@@ -347,11 +355,12 @@ return {
         'lua_ls',
         'markdown-oxide',
         'mdx-analyzer',
+        'markdownlint',
+        'markdownlint-cli2',
+        'markdown-toc',
         'prettierd',
         'prettier',
         'biome',
-
-        'markdownlint',
         'prismals',
         'tailwindcss-language-server',
         'biome',
@@ -433,12 +442,33 @@ return {
         html = { 'prettier' },
         json = { 'prettier' },
         yaml = { 'prettier' },
-        markdown = { 'prettier' },
+        -- markdown = { 'prettier' },
         astro = { 'prettierd', 'prettier', 'biome', stop_after_first = true },
         javascript = { 'prettierd', 'prettier', 'biome', stop_after_first = true },
         typescript = { 'prettierd', 'prettier', 'biome', stop_after_first = true },
         javascriptreact = { 'prettierd', 'prettier', 'biome', stop_after_first = true },
         typescriptreact = { 'prettierd', 'prettier', 'biome', stop_after_first = true },
+        ['markdown'] = { 'prettier', 'markdownlint-cli2', 'markdown-toc' },
+        ['markdown.mdx'] = { 'prettier', 'markdownlint-cli2', 'markdown-toc' },
+      },
+      formatter = {
+        ['markdown-toc'] = {
+          condition = function(_, ctx)
+            for _, line in ipairs(vim.api.nvim_buf_get_lines(ctx.buf, 0, -1, false)) do
+              if line:find '<!%-%- toc %-%->' then
+                return true
+              end
+            end
+          end,
+        },
+        ['markdownlint-cli2'] = {
+          condition = function(_, ctx)
+            local diag = vim.tbl_filter(function(d)
+              return d.source == 'markdownlint'
+            end, vim.diagnostic.get(ctx.buf))
+            return #diag > 0
+          end,
+        },
       },
       --[[
       formatters = {

@@ -3,9 +3,14 @@ local gpus = wezterm.gui.enumerate_gpus()
 return {
 	color_scheme = "Kanagawa (Gogh)",
 	enable_tab_bar = false,
-	font_size = 16.0,
+	font_size = 15.0,
 	-- font = wezterm.font("JetBrains Mono"),
-	font = wezterm.font("ComicShannsMono Nerd Font"),
+	-- font = wezterm.font("ComicShannsMono Nerd Font"),
+	-- font = wezterm.font("Fira Code"),
+	font = wezterm.font({
+		family = "Fira Code",
+		weight = "DemiBold",
+	}),
 
 	-- window_background_opacity = 0.87,
 	win32_system_backdrop = "Tabbed",
@@ -34,24 +39,26 @@ return {
 	webgpu_preferred_adapter = gpus[1],
 	front_end = "WebGpu",
 	prefer_egl = true,
+	enable_wayland = false,
 
+	window_background_opacity = 0.75,
 	-- background toggle
-	wezterm.on("toggle-bg", function(window, pane)
-		local overrides = window:get_config_overrides() or {}
-		if overrides.window_background_opacity == 1 then
-			overrides.window_background_opacity = 0.85
-		else
-			overrides.window_background_opacity = 1
-		end
-		window:set_config_overrides(overrides)
-	end),
+	-- wezterm.on("toggle-bg", function(window, pane)
+	-- 	local overrides = window:get_config_overrides() or {}
+	-- 	if overrides.window_background_opacity == 1 then
+	-- 		overrides.window_background_opacity = 0.85
+	-- 	else
+	-- 		overrides.window_background_opacity = 1
+	-- 	end
+	-- 	window:set_config_overrides(overrides)
+	-- end),
 
 	keys = {
-		{
-			key = "t",
-			mods = "CTRL|SHIFT",
-			action = wezterm.action.EmitEvent("toggle-bg"),
-		},
+		-- {
+		-- 	key = "t",
+		-- 	mods = "SUPER|SHIFT|CTRL",
+		-- 	action = wezterm.action.EmitEvent("toggle-bg"),
+		-- },
 		{
 			key = "f",
 			mods = "CTRL",

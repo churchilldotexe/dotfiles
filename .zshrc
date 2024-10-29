@@ -1,5 +1,4 @@
-# Created by newuser for 5.9
-
+# aliases for .zsh folder
 [[ -f ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
 [[ -f ~/.zsh/functions.zsh ]] && source ~/.zsh/functions.zsh
 # [[ -f ~/.zsh/starship.zsh ]] && source ~/.zsh/starship.zsh
@@ -8,10 +7,11 @@
 # [[ -f ~/.zsh/goto.zsh ]] && source ~/.zsh/goto.zsh
 
 export DISPLAY=:0
-export BROWSER=~/.local/bin/wsl-browser
+# if youre using wsl
+# export BROWSER=~/.local/bin/wsl-browser
 
 # uncomment if you're using homebrew
-# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 
 # history setup
@@ -28,11 +28,12 @@ bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
 # uncomment if you're using ubuntu with homebrew
-# source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# if youre using arch linux and installed with pacman
+# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # ---- oh my posh ---- # 
 export PATH=$PATH:/home/ting/.local/bin
