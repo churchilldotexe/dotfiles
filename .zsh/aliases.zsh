@@ -38,3 +38,7 @@ alias tx='tmux -u'
 
 # lazygit
 alias lg='lazygit'
+
+
+# Nix package manager Alias
+alias nix-switch='home-manager switch --flake ~/dotfiles/nix/#$USER'

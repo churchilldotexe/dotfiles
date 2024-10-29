@@ -37,16 +37,10 @@
     enable = true;
   };
 }
-# home-manager switch --flake ~/nix/#$USER
+#installing home-manager cli 
+#nix run nixpkgs#home-manager -- switch --flake ~/nix/#$USER
+
+#home-manager switch --flake ~/nix/#$USER
 # https://tech.aufomm.com/my-nix-journey-use-nix-with-ubuntu/
 # https://search.nixos.org/packages
 
-# Show the path of your Nix-installed zsh
-#which zsh
-# Usually shows: /home/username/.nix-profile/bin/zsh
-
-# Add it to /etc/shells (needs sudo)
-#echo "$(which zsh)" | sudo tee -a /etc/shells
-
-# Now you can change your shell
-#chsh -s $(which zsh)
