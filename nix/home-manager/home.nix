@@ -27,9 +27,9 @@
     neovim
     lazygit
     php
-    sqlite
-    mysql84
-    postgresql
+    # sqlite
+    # mysql84
+    # postgresql
     lua51Packages.lua
     luajitPackages.luarocks
     fd

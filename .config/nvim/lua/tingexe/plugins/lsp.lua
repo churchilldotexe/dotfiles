@@ -342,6 +342,7 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'phpcs',
+        'pint',
         'phpactor',
         'php-cs-fixer',
         'astro-language-server',
@@ -437,7 +438,7 @@ return {
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
         --
         --
-        php = { 'php_cs_fixer', stop_after_first = true },
+        php = { 'pint', 'php_cs_fixer', stop_after_first = true },
         prisma = { 'prettierd', 'prettier', stop_after_first = true },
         html = { 'prettier' },
         json = { 'prettier' },
