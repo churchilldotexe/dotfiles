@@ -99,6 +99,8 @@
     eza
     zoxide
     pnpm
+    yarn
+    bun
     turso-cli
   ];
 
