@@ -3,11 +3,12 @@
 {
   imports = [
     ./apps
-
   ];
   home.username = "ting";
   home.homeDirectory = "/home/ting";
   home.stateVersion = "23.05";
+  targets.genericLinux.enable = true;
+  nixpkgs.config.allowUnfree=true;
   home.packages = with pkgs; [
     neofetch
     zsh
@@ -31,11 +32,12 @@
     postgresql
     lua51Packages.lua
     luajitPackages.luarocks
+    fd
   ];
   programs.home-manager.enable = true;
-  programs.zsh = {
-    enable = true;
-  };
+  # programs.zsh = {
+  #   enable = true;
+  # };
 }
 #installing home-manager cli 
 #nix run nixpkgs#home-manager -- switch --flake ~/nix/#$USER

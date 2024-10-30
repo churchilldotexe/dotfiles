@@ -6,17 +6,19 @@ alias zsrc='source ~/.zshrc'
 # update and upgrade
 alias apt-sync='sudo bash -c "apt update && apt upgrade"'
 
+
 #
-alias k="kubectl"
-alias h="helm"
-alias tf="terraform"
-alias a="ansible"
-alias ap="ansible-playbook"
+# alias k="kubectl"
+# alias h="helm"
+# alias tf="terraform"
+# alias a="ansible"
+# alias ap="ansible-playbook"
 
 # alias code="open -a 'Visual Studio Code'"
 
 alias gprj="cd $HOME/Projects"
 
+alias cd="z"
 alias cl="clear"
 alias ls="eza --icons --group-directories-first"
 alias ll="eza --icons --group-directories-first -l"

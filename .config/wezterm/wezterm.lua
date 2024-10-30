@@ -41,6 +41,7 @@ return {
 	prefer_egl = true,
 	enable_wayland = false,
 
+	-- window_background_opacity = 0,
 	window_background_opacity = 0.75,
 	-- background toggle
 	-- wezterm.on("toggle-bg", function(window, pane)

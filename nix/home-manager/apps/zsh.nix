@@ -64,6 +64,10 @@
         *) export PATH="$PNPM_HOME:$PATH" ;;
       esac
 
+      # Brew 
+
+      eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
       # Additional PATH modifications
       export PATH="$PATH:${config.home.homeDirectory}/.local/bin"
       export PATH="$PATH:${config.home.homeDirectory}/.turso"
@@ -71,12 +75,10 @@
     '';
 
     # Aliases
-    shellAliases = {
+    # shellAliases = {
       # ls = "eza --icons=always";
       # cd = "z";
-      ll = "z";
-      update = "eza --icons=always";
-    };
+    # };
 
     # Plugin configurations
     plugins = [
