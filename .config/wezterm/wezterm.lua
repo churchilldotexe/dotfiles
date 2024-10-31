@@ -1,5 +1,7 @@
 local wezterm = require("wezterm")
 -- local gpus = wezterm.gui.enumerate_gpus()
+local bgOpacity = 0.75
+local backdrop = "Acrylic"
 return {
 	---
 	------- themes and fonts ----
@@ -13,6 +15,8 @@ return {
 	---
 	------- Layout --------
 	---
+	win32_system_backdrop = backdrop,
+	window_background_opacity = bgOpacity,
 	window_frame = {
 		inactive_titlebar_bg = "#353535",
 		active_titlebar_bg = "#2b2042",
@@ -44,9 +48,11 @@ return {
 	--
 	------- Options and others -----
 	--
+	max_fps = 240,
 	window_close_confirmation = "NeverPrompt",
 	enable_tab_bar = false,
 	window_decorations = "RESIZE",
+
 	-- window_decorations = "TITLE | RESIZE",
 
 	-- GPU
@@ -71,7 +77,7 @@ return {
 	wezterm.on("toggle-backdrop", function(window, pane)
 		local overrides = window:get_config_overrides() or {}
 		if overrides.win32_system_backdrop == "Disable" then
-			overrides.win32_system_backdrop = "Acrylic"
+			overrides.win32_system_backdrop = backdrop
 		else
 			overrides.win32_system_backdrop = "Disable"
 		end
@@ -80,10 +86,10 @@ return {
 
 	wezterm.on("toggle-opacity", function(window, pane)
 		local overrides = window:get_config_overrides() or {}
-		if overrides.window_background_opacity == 1 then
-			overrides.window_background_opacity = 0.75
+		if overrides.window_background_opacity == bgOpacity then
+			overrides.window_background_opacity = bgOpacity
 		else
-			overrides.window_background_opacity = 1
+			overrides.window_background_opacity = bgOpacity
 		end
 		window:set_config_overrides(overrides)
 	end),
@@ -108,12 +114,12 @@ return {
 		},
 		{
 			key = "f",
-			mods = "CTRL",
+			mods = "LEADER",
 			action = wezterm.action.ToggleFullScreen,
 		},
 		{
 			key = "'",
-			mods = "CTRL",
+			mods = "LEADER",
 			action = wezterm.action.ClearScrollback("ScrollbackAndViewport"),
 		},
 	},

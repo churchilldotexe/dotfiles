@@ -367,6 +367,8 @@ return {
         'biome',
         -- 'emmet-ls',
         'stylua', -- Used to format Lua code
+        -- 'nil_ls',
+        -- 'nixpkgs-fmt',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

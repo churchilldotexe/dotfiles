@@ -30,6 +30,7 @@ return { -- Highlight, edit, and navigate code
       'markdown_inline',
       'query',
       'vimdoc',
+      'nix',
     },
 
     query_linter = {

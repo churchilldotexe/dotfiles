@@ -33,6 +33,7 @@
     lua51Packages.lua
     luajitPackages.luarocks
     fd
+    btop
   ];
   programs.home-manager.enable = true;
   # programs.zsh = {

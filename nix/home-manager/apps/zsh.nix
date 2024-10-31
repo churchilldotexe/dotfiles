@@ -16,6 +16,9 @@
 {
   programs.zsh = {
     enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
     
     # History configuration
     history = {
@@ -71,10 +74,20 @@
     '';
 
     # Aliases
-    # shellAliases = {
-      # ls = "eza --icons=always";
-      # cd = "z";
-    # };
+    shellAliases = {
+      ls = "eza --icons=always";
+      ll = "eza --icons --group-directories-first -l";
+      lsa="ls -a";
+
+      # Cd aliases
+      cd = "z";
+      cdvim = "cd ~/.config/nvim/";
+      cdnix = "cd ~/dotfiles/nix/";
+
+      # Nix package manager Alias
+      nix-switch="home-manager switch --flake ~/dotfiles/nix/#$USER";
+
+    };
 
     # Plugin configurations
     plugins = [

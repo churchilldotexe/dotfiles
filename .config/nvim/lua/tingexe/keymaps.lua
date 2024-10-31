@@ -18,6 +18,21 @@ keymap.set('n', '<leader>raw', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Le
 -- source %
 keymap.set('n', '<leader>src', ':source %<CR>', { desc = 'source the file' })
 
+-- Spell check
+function toggleSpellCheck()
+  if vim.o.spell then
+    vim.o.spell = false
+    vim.notify('spell check off', 2)
+  else
+    vim.o.spell = true
+    vim.o.spelllang = 'en_us'
+
+    vim.notify('spell check on', 2)
+  end
+end
+
+keymap.set('n', '<leader>sp', toggleSpellCheck, { desc = '[S]et [S]pell' })
+
 -- saving, closing, close and save a file
 keymap.set('n', '<leader>ww', ':w<CR>', { desc = 'save file' })
 keymap.set('n', '<leader>wn', ':w<CR>', { desc = '[W]rite file [N]o format' })
@@ -34,7 +49,7 @@ keymap.set('n', '<leader>dd', '"_d', { desc = 'delete character and place to the
 keymap.set('v', '<leader>dd', '"_d', { desc = 'delete character and place to the void' })
 keymap.set('n', 'x', '"_x', { desc = 'delete character and place to the void' })
 
--- seting/unseting wrapping with breakindent
+-- setting/setting wrapping with break indent
 keymap.set('n', '<leader>sw', '<cmd>set wrap<bar>set breakindent<CR>', { desc = '[S]et [W]rap with Breakindent' })
 keymap.set('n', '<leader>snw', '<cmd>set nowrap<bar>set nobreakindent<CR>', { desc = '[S]et [N]o[W]rap with nobreakindent' })
 
@@ -42,7 +57,7 @@ keymap.set('n', '<leader>snw', '<cmd>set nowrap<bar>set nobreakindent<CR>', { de
 keymap.set('n', '<leader>o', 'o<Esc>', { desc = "create new line 'under' the cursor and back to normal mode" })
 keymap.set('n', '<leader>O', 'O<Esc>', { desc = "create new line 'above' the cursor and back to normal mode" })
 
--- increment/decrement numbers
+-- increment/decrements numbers
 keymap.set('n', '<leader>+', '<C-a>', { desc = 'Increment number' })
 keymap.set('n', '<leader>-', '<C-x>', { desc = 'Decrement number' })
 

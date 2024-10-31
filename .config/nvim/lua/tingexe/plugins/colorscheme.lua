@@ -54,9 +54,9 @@ return {
             PmenuThumb = { bg = theme.ui.bg_p2 },
           }
         end,
-        theme = 'wave', -- Load "wave" theme when 'background' option is not set
+        theme = 'dragon', -- Load "wave" theme when 'background' option is not set
         background = { -- map the value of 'background' option to a theme
-          dark = 'wave', -- try "dragon" !
+          dark = 'dragon', -- try "dragon" !
           light = 'lotus',
         },
       }

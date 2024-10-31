@@ -68,6 +68,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+
 -- Preview substitutions live, as you type!
 opt.inccommand = 'split'
 

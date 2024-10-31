@@ -18,11 +18,11 @@ alias apt-sync='sudo bash -c "apt update && apt upgrade"'
 
 alias gprj="cd $HOME/Projects"
 
-alias cd="z"
+# alias cd="z"
 alias cl="clear"
-alias ls="eza --icons --group-directories-first"
-alias ll="eza --icons --group-directories-first -l"
-alias lsa="ls -a"
+# alias ls="eza --icons --group-directories-first"
+# alias ll="eza --icons --group-directories-first -l"
+# alias lsa="ls -a"
 #alias grep='grep --color'
 
 # alias prx="ssh root@prx-prod-2.home.clcreative.de"
@@ -43,4 +43,4 @@ alias lg='lazygit'
 
 
 # Nix package manager Alias
-alias nix-switch='home-manager switch --flake ~/dotfiles/nix/#$USER'
+# alias nix-switch='home-manager switch --flake ~/dotfiles/nix/#$USER'
