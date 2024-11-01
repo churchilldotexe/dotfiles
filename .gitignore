@@ -1,1 +1,5 @@
 .config/tmux/plugins
+.config/composer
+.config/gh
+.config/herd-lite/bin
+.config/lazygit

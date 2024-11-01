@@ -4,6 +4,7 @@
 
 1. install: `curl`, `git` and `stow` : `sudo apt install git curl stow`
 2. install nix package manager : `sh <(curl -L https://nixos.org/nix/install) --daemon`
+   or use the nix installer(good if you have custom folder for nix) : `curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install`
 3. clone repo: `git clone "https://github.com/churchilldotexe/dotfiles" ~/dotfiles/`
 
    > [!WARNING] About clone
@@ -29,9 +30,9 @@
    ```bash
 
     # installing home-manager cli
-    nix run nixpkgs#home-manager -- switch --flake ~/nix/#$USER
+    nix run nixpkgs#home-manager -- switch --flake ~/dotfiles/nix/#$USER
 
-    home-manager switch --flake ~/nix/#$USER
+    home-manager switch --flake ~/dotfiles/nix/#$USER
 
    ```
 
@@ -194,11 +195,10 @@ npm install -g neovim
 
 ## php specifics
 
-### Composer installation
+using [php.new](https://php.new/)
 
 ```bash
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-php -r "if (hash_file('sha384', 'composer-setup.php') === 'dac665fdc30fdd8ec78b38b9800061b4150413ff2e3b6f88543c636f7cd84f6db9189d43a81e5503cda447da73c7e5b6') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-php composer-setup.php
-php -r "unlink('composer-setup.php');"
+/bin/bash -c "$(curl -fsSL https://php.new/install/mac)"
 ```
+
+then source `source ~/.zshrc`
