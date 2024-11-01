@@ -3,14 +3,28 @@
 ## Pre repo clone install
 
 1. install: `curl`, `git` and `stow` : `sudo apt install git curl stow`
-2. install nix package manager : `sh <(curl -L https://nixos.org/nix/install) --daemon`
-   or use the nix installer(good if you have custom folder for nix) : `curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install`
-3. clone repo: `git clone "https://github.com/churchilldotexe/dotfiles" ~/dotfiles/`
+2. install nix package manager :
 
-   > [!WARNING] About clone
-   > if git already connected with github
-   > Better clone with ssh and not the https.
-   > Delete the dotfiles and reclone with ssh before making any changes
+   ```bash
+   sh <(curl -L https://nixos.org/nix/install) --daemon
+   ```
+
+   or use the nix installer(good if you have custom folder for nix) :
+
+   ```bash
+   curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+   ```
+
+3. clone repo:
+
+   ```bash
+   git clone "https://github.com/churchilldotexe/dotfiles" ~/dotfiles/
+   ```
+
+> [!WARNING] About clone
+> if git already connected with github
+> Better clone with ssh and not the https.
+> Delete the dotfiles and reclone with ssh before making any changes
 
 4. executing stow `cd ~/dotfiles` and `stow .`
 5. install packages
@@ -27,13 +41,16 @@
    > home.homeDirectory = "/home/ting";
    > ```
 
+   - installing home-manager cli
+
    ```bash
-
-    # installing home-manager cli
     nix run nixpkgs#home-manager -- switch --flake ~/dotfiles/nix/#$USER
+   ```
 
-    home-manager switch --flake ~/dotfiles/nix/#$USER
+   - updating the home-manager(installing,uninstalling)
 
+   ```bash
+   home-manager switch --flake ~/dotfiles/nix/#$USER
    ```
 
 6. change zsh to default shell:
