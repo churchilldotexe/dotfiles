@@ -26,7 +26,7 @@
     gnumake
     neovim
     lazygit
-    php
+    # php
     # sqlite
     # mysql84
     # postgresql

@@ -3,3 +3,6 @@
 .config/gh
 .config/herd-lite/bin
 .config/lazygit
+.config/environment.d
+.config/environment.d.bak/environment.d
+.zsh/plugins
