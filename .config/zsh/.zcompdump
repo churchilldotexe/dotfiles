@@ -1,4 +1,4 @@
-#files: 2002	version: 5.9
+#files: 1992	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -148,7 +148,6 @@ _comps=(
 'apt-show-versions' '_apt-show-versions'
 'aptitude' '_aptitude'
 'apvlv' '_pdf'
-'arch-chroot' '_arch-chroot'
 'arduino-ctags' '_ctags'
 'arecord' '_alsa-utils'
 'arena' '_webbrowser'
@@ -299,7 +298,6 @@ _comps=(
 'configure' '_configure'
 'convert' '_imagemagick'
 'coreadm' '_coreadm'
-'coredumpctl' '_coredumpctl'
 'cowsay' '_cowsay'
 'cowthink' '_cowsay'
 'cp' '_cp'
@@ -560,7 +558,6 @@ _comps=(
 'geany' '_geany'
 'gegrep' '_grep'
 'gem' '_gem'
-'genfstab' '_genfstab'
 'genisoimage' '_genisoimage'
 'genv' '_env'
 'get' '_sccs'
@@ -907,7 +904,6 @@ _comps=(
 'lzop' '_lzop'
 'm-a' '_module-assistant'
 'mac2unix' '_dos2unix'
-'machinectl' '_machinectl'
 'madison' '_madison'
 'magnum' '_openstack'
 'mail' '_mail'
@@ -1090,7 +1086,6 @@ _comps=(
 'oh-my-posh' '_oh-my-posh'
 'oksh' '_sh'
 'okular' '_okular'
-'oomctl' '_oomctl'
 'open' '_open'
 'openstack' '_openstack'
 'opera' '_webbrowser'
@@ -1106,11 +1101,6 @@ _comps=(
 'p4d' '_perforce'
 'pack' '_pack'
 'packf' '_mh'
-'pacman' '_pacman'
-'pacman-conf' '_pacman'
-'pacman-key' '_pacman'
-'pacman.static' '_pacman'
-'pacstrap' '_pacstrap'
 'pandoc' '_pandoc'
 'parsehdlist' '_urpmi'
 'passwd' '_users'
@@ -1329,7 +1319,6 @@ _comps=(
 'ruby' '_ruby'
 'ruby-mri' '_ruby'
 'run-help' '_run-help'
-'run0' '_run0'
 'rup' '_hosts'
 'rusage' '_precommand'
 'rview' '_vim'
@@ -1410,6 +1399,7 @@ _comps=(
 'smbstatus' '_samba'
 'smit' '_smit'
 'smitty' '_smit'
+'snap' '_snap'
 'snoop' '_snoop'
 'soa' '_hosts'
 'socket' '_socket'
@@ -1490,7 +1480,6 @@ _comps=(
 'systemd-inhibit' '_systemd-inhibit'
 'systemd-machine-id-setup' '_systemd'
 'systemd-notify' '_systemd'
-'systemd-nspawn' '_systemd-nspawn'
 'systemd-path' '_systemd-path'
 'systemd-resolve' '_resolvectl'
 'systemd-run' '_systemd-run'
@@ -1628,7 +1617,6 @@ _comps=(
 'val' '_sccs'
 'valgrind' '_valgrind'
 'vared' '_vared'
-'varlinkctl' '_varlinkctl'
 'vcs_info_hookadd' '_vcs_info'
 'vcs_info_hookdel' '_vcs_info'
 'vi' '_vi'
@@ -1830,7 +1818,6 @@ _services=(
 'nail' 'mail'
 'ncl' 'nc'
 'nedit-nc' 'nc'
-'pacman.static' 'pacman'
 'pcat' 'unpack'
 'remsh' 'rsh'
 'slogin' 'ssh'
@@ -2105,13 +2092,11 @@ autoload -Uz _SUSEconfig __arguments _a2ps _a2utils _aap \
             _zftp _zip _zle _zlogin _zmodload \
             _zmv _zoneadm _zones _zparseopts _zpty \
             _zsh _zsh-mime-handler _zsocket _zstyle _ztodo \
-            _zypper _arch-chroot _bootctl _busctl _coredumpctl \
-            _curl _genfstab _hostnamectl _journalctl _kernel-install \
-            _localectl _loginctl _machinectl _networkctl _oomctl \
-            _pacman _pacstrap _resolvectl _run0 _sd_hosts_or_user_at_host \
-            _sd_machines _sd_outputmodes _sd_unit_files _systemctl _systemd \
-            _systemd-analyze _systemd-delta _systemd-inhibit _systemd-nspawn _systemd-path \
-            _systemd-run _systemd-tmpfiles _timedatectl _udevadm _varlinkctl \
+            _zypper _bootctl _busctl _curl _hostnamectl \
+            _journalctl _kernel-install _localectl _loginctl _networkctl \
+            _resolvectl _sd_hosts_or_user_at_host _sd_outputmodes _sd_unit_files _snap \
+            _systemctl _systemd _systemd-analyze _systemd-delta _systemd-inhibit \
+            _systemd-path _systemd-run _systemd-tmpfiles _timedatectl _udevadm \
             _nix _bun _eza _fd _gh \
             _home-manager _luarocks _luarocks-admin _nix-build _nix-channel \
             _nix-collect-garbage _nix-common-options _nix-copy-closure _nix-env _nix-hash \

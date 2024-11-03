@@ -2,6 +2,7 @@ local wezterm = require("wezterm")
 -- local gpus = wezterm.gui.enumerate_gpus()
 local bgOpacity = 0.75
 local backdrop = "Acrylic"
+local act = wezterm.action
 return {
 	---
 	------- themes and fonts ----
@@ -10,7 +11,8 @@ return {
 	font_size = 15.0,
 	-- font = wezterm.font("JetBrains Mono"),
 	-- font = wezterm.font("ComicShannsMono Nerd Font"),
-	font = wezterm.font("FiraCode Nerd Font", { weight = "Medium" }),
+	-- font = wezterm.font("FiraCode Nerd Font", { weight = "Medium" }),
+	font = wezterm.font("Fira Code Script", { weight = "Medium" }),
 
 	---
 	------- Layout --------
@@ -48,7 +50,8 @@ return {
 	--
 	------- Options and others -----
 	--
-	max_fps = 240,
+	term = "wezterm",
+	max_fps = 180,
 	window_close_confirmation = "NeverPrompt",
 	enable_tab_bar = false,
 	window_decorations = "RESIZE",
@@ -100,27 +103,55 @@ return {
 		{
 			key = "d",
 			mods = "LEADER",
-			action = wezterm.action.EmitEvent("toggle-decor"),
+			action = act.EmitEvent("toggle-decor"),
 		},
 		{
 			key = "b",
 			mods = "LEADER",
-			action = wezterm.action.EmitEvent("toggle-backdrop"),
+			action = act.EmitEvent("toggle-backdrop"),
 		},
 		{
-			key = "o",
+			key = "g",
 			mods = "LEADER",
-			action = wezterm.action.EmitEvent("toggle-opacity"),
+			action = act.EmitEvent("toggle-opacity"),
 		},
 		{
 			key = "f",
 			mods = "LEADER",
-			action = wezterm.action.ToggleFullScreen,
+			action = act.ToggleFullScreen,
 		},
 		{
 			key = "'",
 			mods = "LEADER",
-			action = wezterm.action.ClearScrollback("ScrollbackAndViewport"),
+			action = act.ClearScrollback("ScrollbackAndViewport"),
+		},
+
+		-- workspace --
+		{
+			key = "y",
+			mods = "LEADER",
+			action = act.SwitchToWorkspace({
+				name = "default",
+			}),
+		},
+		-- Switch to a monitoring workspace, which will have `top` launched into it
+		{
+			key = "u",
+			mods = "LEADER",
+			action = act.SwitchToWorkspace({
+				name = "monitoring",
+			}),
+		},
+		-- Create a new workspace with a random name and switch to it
+		{ key = "i", mods = "LEADER", action = act.SwitchToWorkspace },
+		-- Show the launcher in fuzzy selection mode and have it list all workspaces
+		-- and allow activating one.
+		{
+			key = "o",
+			mods = "LEADER",
+			action = act.ShowLauncherArgs({
+				flags = "FUZZY|WORKSPACES",
+			}),
 		},
 	},
 	mouse_bindings = {
@@ -128,7 +159,7 @@ return {
 		{
 			event = { Up = { streak = 1, button = "Left" } },
 			mods = "CTRL",
-			action = wezterm.action.OpenLinkAtMouseCursor,
+			action = act.OpenLinkAtMouseCursor,
 		},
 	},
 }
