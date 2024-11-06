@@ -351,6 +351,7 @@ return {
         -- 'nixpkgs-fmt',
 
         -- Formatters --
+        'blade-formatter',
         'fixjson',
         'pint',
         'phpcs',
@@ -456,7 +457,7 @@ return {
         --
         --
         php = { 'pint', 'php_cs_fixer', stop_after_first = true },
-        blade = { 'prettier', 'blade-formatter', stop_after_first = true },
+        blade = { 'pint', 'prettier', 'blade-formatter', stop_after_first = true },
         prisma = { 'prettierd', 'prettier', stop_after_first = true },
         html = { 'prettier' },
         json = { 'prettier' },

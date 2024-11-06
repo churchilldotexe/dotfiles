@@ -31,7 +31,7 @@ function toggleSpellCheck()
   end
 end
 
-keymap.set('n', '<leader>sp', toggleSpellCheck, { desc = '[S]et [S]pell' })
+keymap.set('n', '<leader>spc', toggleSpellCheck, { desc = '[S]et [S]pell' })
 
 -- saving, closing, close and save a file
 keymap.set('n', '<leader>ww', ':w<CR>', { desc = 'save file' })

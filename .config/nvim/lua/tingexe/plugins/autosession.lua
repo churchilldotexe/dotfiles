@@ -1,3 +1,4 @@
+--[[
 return {
   'folke/persistence.nvim',
   event = 'BufReadPre',
@@ -17,7 +18,8 @@ return {
     { "<leader>qd", function() require("persistence").stop() end, desc = "Don't Save Current Session" },
   },
 }
---[[
+--]]
+
 return {
   'rmagatti/auto-session',
   lazy = false,
@@ -56,5 +58,3 @@ return {
     -- keymap.set('n', '<leader>qs', '<cmd>SessionSave<CR>', { desc = 'Save session for auto session root dir' }) -- save workspace session for current working directory
   end,
 }
-
---]]

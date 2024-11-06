@@ -111,7 +111,7 @@ return {
       local map = require('tingexe.util').map
 
       telescope.load_extension 'projects'
-      map({ 'n', 'v' }, '<leader>tp', telescope.extensions.projects.projects)
+      map({ 'n', 'v' }, '<leader>spt', telescope.extensions.projects.projects, { desc = '[S]earch [P]rojects [T]oggle' })
     end,
     dependencies = {
       'nvim-telescope/telescope.nvim',
