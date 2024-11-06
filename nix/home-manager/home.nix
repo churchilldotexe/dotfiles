@@ -11,9 +11,9 @@
   nixpkgs.config.allowUnfree=true;
   home.packages = with pkgs; [
     neofetch
-    zsh
-    zsh-autocomplete
-    zsh-autosuggestions
+ # zsh
+  # zsh-autocomplete
+  # zsh-autosuggestions
     git
     gh
     stow
@@ -34,8 +34,26 @@
     luajitPackages.luarocks
     fd
     btop
+    oh-my-posh
+    eza
+    zoxide
+    pnpm
+    yarn
+    bun
+    turso-cli
   ];
   programs.home-manager.enable = true;
+programs = {
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+  };
   # programs.zsh = {
   #   enable = true;
   # };
