@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
--- local gpus = wezterm.gui.enumerate_gpus()
+local gpus = wezterm.gui.enumerate_gpus()
 local bgOpacity = 0.75
-local backdrop = "Acrylic"
+-- local backdrop = "Acrylic"
 local act = wezterm.action
 return {
 	---
@@ -12,12 +12,16 @@ return {
 	-- font = wezterm.font("JetBrains Mono"),
 	-- font = wezterm.font("ComicShannsMono Nerd Font"),
 	-- font = wezterm.font("FiraCode Nerd Font", { weight = "Medium" }),
-	font = wezterm.font("Fira Code Script", { weight = "Medium" }),
+	-- font = wezterm.font("Fira Code Script", { weight = "Medium" }),
+	font = wezterm.font("ZedMono Nerd Font", { weight = "Regular", stretch = "Normal" }),
+	cell_width = 1.01,
+	xcursor_theme = "Adwaita",
 
 	---
 	------- Layout --------
 	---
-	win32_system_backdrop = backdrop,
+	-- win32_system_backdrop = backdrop,
+	use_fancy_tab_bar = false,
 	window_background_opacity = bgOpacity,
 	window_frame = {
 		inactive_titlebar_bg = "#353535",
@@ -47,24 +51,24 @@ return {
 		bottom = 5,
 	},
 
-	--
 	------- Options and others -----
-	--
+
+	-- enable_wayland = false,
 	term = "wezterm",
-	max_fps = 180,
+	max_fps = 240,
 	window_close_confirmation = "NeverPrompt",
 	enable_tab_bar = false,
-	window_decorations = "RESIZE",
+	window_decorations = "RESIZE | TITLE",
 
 	-- window_decorations = "TITLE | RESIZE",
 
 	-- GPU
-	-- webgpu_preferred_adapter = gpus[1],
-	-- front_end = "WebGpu",
+	front_end = "WebGpu",
 	-- prefer_egl = true,
+	webgpu_preferred_adapter = gpus[1],
+	webgpu_power_preference = "HighPerformance",
 
 	---- KeyBindings -------
-	---
 
 	-- Decorations toggle
 	wezterm.on("toggle-decor", function(window, pane)
@@ -76,7 +80,7 @@ return {
 		end
 		window:set_config_overrides(overrides)
 	end),
-
+	--[[
 	wezterm.on("toggle-backdrop", function(window, pane)
 		local overrides = window:get_config_overrides() or {}
 		if overrides.win32_system_backdrop == "Disable" then
@@ -86,7 +90,7 @@ return {
 		end
 		window:set_config_overrides(overrides)
 	end),
-
+--]]
 	wezterm.on("toggle-opacity", function(window, pane)
 		local overrides = window:get_config_overrides() or {}
 		if overrides.window_background_opacity == bgOpacity then
@@ -105,11 +109,13 @@ return {
 			mods = "LEADER",
 			action = act.EmitEvent("toggle-decor"),
 		},
+		--[[
 		{
 			key = "b",
 			mods = "LEADER",
 			action = act.EmitEvent("toggle-backdrop"),
 		},
+			--]]
 		{
 			key = "g",
 			mods = "LEADER",
