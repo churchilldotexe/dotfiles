@@ -13,14 +13,14 @@
 )
 
 (defalias
-  a (tap-hold $tap-time $hold-time a lmet)
-  s (tap-hold $tap-time $hold-time s lalt)
-  d (tap-hold $tap-time $hold-time d lsft)
-  f (tap-hold $tap-time $hold-time f lctl)
-  j (tap-hold $tap-time $hold-time j lctl)
-  k (tap-hold $tap-time $hold-time k lsft)
-  l (tap-hold $tap-time $hold-time l lalt)
-  ; (tap-hold $tap-time $hold-time ; lmet)
+  a (tap-hold $tap-time $hold-time a lctl)
+  s (tap-hold $tap-time $hold-time s lsft)
+  d (tap-hold $tap-time $hold-time d lalt)
+  f (tap-hold $tap-time $hold-time f lmet)
+  j (tap-hold $tap-time $hold-time j lmet)
+  k (tap-hold $tap-time $hold-time k lalt)
+  l (tap-hold $tap-time $hold-time l lsft)
+  ; (tap-hold $tap-time $hold-time ; lctl)
 )
 
 (deflayer base
