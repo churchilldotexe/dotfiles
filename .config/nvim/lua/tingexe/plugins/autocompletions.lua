@@ -144,9 +144,6 @@ return { -- Autocompletion
     {
       'L3MON4D3/LuaSnip',
       build = (function()
-        -- Build Step is needed for regex support in snippets.
-        -- This step is not supported in many windows environments.
-        -- Remove the below condition to re-enable on windows.
         if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
           return
         end
@@ -164,22 +161,53 @@ return { -- Autocompletion
         },
       },
     },
+    {
+      'onsails/lspkind.nvim',
+      opts = {
+        symbol_map = {
+          Field = '',
+          Variable = '',
+          Reference = '',
+          TypeParameter = '',
+        },
+      },
+      config = function(_, opts)
+        require('lspkind').init(opts)
+      end,
+    },
     'saadparwaiz1/cmp_luasnip',
 
     -- Adds other completion capabilities.
     --  nvim-cmp does not ship with all sources by default. They are split
     --  into multiple repos for maintenance purposes.
     'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-nvim-lua',
+    'hrsh7th/cmp-nvim-lsp-signature-help',
+    'hrsh7th/cmp-nvim-lsp-document-symbol',
     'hrsh7th/cmp-path',
-    'onsails/lspkind.nvim',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/cmp-emoji',
+    'amarakon/nvim-cmp-buffer-lines',
+    'windwp/nvim-autopairs',
+
+    'petertriho/cmp-git',
+    'David-Kunz/cmp-npm',
+    'kristijanhusak/vim-dadbod-completion',
+    'rcarriga/cmp-dap',
+    'js-everts/cmp-tailwind-colors',
   },
   config = function()
     -- See `:help cmp`
     local cmp = require 'cmp'
+    local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
+    local tailwindcss = require 'cmp-tailwind-colors'
     local luasnip = require 'luasnip'
     local lspkind = require 'lspkind'
     local auto_select = true
+
+    require('luasnip.loaders.from_vscode').lazy_load()
+    require('cmp_git').setup()
 
     local kind_icons = {
       Text = '󰉿',
@@ -208,8 +236,6 @@ return { -- Autocompletion
       Operator = '󰆕',
       TypeParameter = '󰊄',
     }
-
-    require('luasnip.loaders.from_vscode').lazy_load()
 
     luasnip.config.setup {}
 
@@ -275,10 +301,17 @@ return { -- Autocompletion
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
       },
       sources = {
+        { name = 'nvim_lsp_signature_help' },
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        { name = 'nvim_lua' },
         { name = 'buffer' },
         { name = 'path' },
+        { name = 'git' },
+        { name = 'npm' },
+        { name = 'emoji' },
+        { name = 'vim-dadbod-completion' },
+        { name = 'nvim_lsp_document_symbol' },
         {
           name = 'lazydev',
           -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
@@ -286,6 +319,7 @@ return { -- Autocompletion
         },
       },
       formatting = {
+        expandable_indicator = true,
         fields = { 'kind', 'abbr', 'menu' },
         format = function(entry, vim_item)
           -- Apply lspkind formatting
@@ -293,6 +327,10 @@ return { -- Autocompletion
           --   maxwidth = 50,
           --   ellipsis_char = '...',
           -- }(entry, vim_item)
+
+          lspkind.cmp_format {
+            before = tailwindcss.format,
+          }
 
           vim_item.kind = string.format('%s', kind_icons[vim_item.kind])
           vim_item.menu = ({
@@ -315,6 +353,15 @@ return { -- Autocompletion
           { name = 'buffer' },
         },
       }),
+
+      cmp.setup.filetype({ 'dap-repl', 'dapui_watches', 'dapui_hover', 'dapui_hover' }, {
+        sources = {
+          { name = 'dap' },
+        },
+      }),
+
+      cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done()),
+
       experimental = {
         ghost_text = {
           hl_group = 'CmpGhostText',

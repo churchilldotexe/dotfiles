@@ -8,8 +8,12 @@ return {
     end,
     ft = { 'markdown' },
     config = function()
-      vim.keymap.set('n', '<leader>mdn', ':MarkdownPreview<CR>')
-      vim.keymap.set('n', '<leader>mds', ':MarkdownPreviewStop<CR>')
+      local map = require('tingexe.util').map
+
+      map('n', '<leader>mdn', ':MarkdownPreview<CR>')
+      map('n', '<leader>mds', ':MarkdownPreviewStop<CR>')
+      -- vim.keymap.set('n', '<leader>mdn', ':MarkdownPreview<CR>')
+      -- vim.keymap.set('n', '<leader>mds', ':MarkdownPreviewStop<CR>')
 
       vim.g.mkdp_markdown_css = 'C:/users/micha/appdata/local/nvim/md.css'
       vim.g.mkdp_highlight_css = 'C:/users/micha/appdata/local/nvim/mdhl.css'
@@ -17,33 +21,25 @@ return {
   },
   {
     'MeanderingProgrammer/render-markdown.nvim',
-    opts = {
-      code = {
-        sign = false,
-        width = 'block',
-        right_pad = 1,
-      },
-      heading = {
-        sign = false,
-        icons = {},
+    opts = {},
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons',
+    },
+  },
+  {
+    'ellisonleao/glow.nvim',
+    keys = {
+      {
+        '<leader>mdp',
+        ':w<cr>:Glow<cr>',
+        desc = 'Render markdown',
       },
     },
-    ft = { 'markdown', 'norg', 'rmd', 'org' },
-    config = function(_, opts)
-      require('render-markdown').setup(opts)
-      vim.keymap.set('n', '<leader>um', function()
-        local m = require 'render-markdown'
-        local enabled = require('render-markdown.state').enabled
-
-        if enabled then
-          m.disable()
-        else
-          m.enable()
-        end
-      end, { desc = 'Toggle Render Markdown' })
-    end,
-    -- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you prefer nvim-web-devicons
+    opts = {
+      border = 'rounded',
+      pager = false,
+      width = 120,
+    },
   },
 }

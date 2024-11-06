@@ -243,52 +243,26 @@ return {
             'astro',
             'astro-markdown',
             'blade',
-            'clojure',
-            'django-html',
-            'htmldjango',
-            'edge',
-            'eelixir',
-            'elixir',
-            'ejs',
-            'erb',
-            'eruby',
-            'gohtml',
-            'gohtmltmpl',
-            'haml',
-            'handlebars',
-            'hbs',
+            'css',
+            'cssls',
+            'cssmodules_ls',
             'html',
-            'htmlangular',
-            'html-eex',
-            'heex',
-            'jade',
-            'leaf',
-            'liquid',
+            'javascript',
+            'javascriptreact',
+            'lua_ls',
+            'less',
             'markdown',
             'mdx',
-            'mustache',
-            'njk',
-            'nunjucks',
             'php',
-            'razor',
-            'slim',
-            'twig',
-            'css',
-            'less',
             'postcss',
             'sass',
             'scss',
-            'stylus',
-            'sugarss',
-            'javascript',
-            'javascriptreact',
-            'reason',
-            'rescript',
+            -- 'slim',
+            -- 'stylus',
             'typescript',
             'typescriptreact',
+            'volar',
             'vue',
-            'svelte',
-            'templ',
           },
           settings = {
             tailwindCSS = {
@@ -341,34 +315,52 @@ return {
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'phpcs',
-        'pint',
+        -- dap servers --
+        { 'js-debug-adapter', version = 'v1.76.1' },
+        'php-debug-adapter',
+        'codelldb',
+
+        -- lsp servers--
         'phpactor',
-        'php-cs-fixer',
         'astro-language-server',
-        -- 'eslint',
-        'eslint_d',
-        -- 'eslint-lsp',
         'lua-language-server',
         'cssls',
         'css_variables',
         'cssmodules_ls',
         'lua_ls',
+        'prismals',
+        -- 'emmet-ls',
+        'stylua', -- Used to format Lua code
+        -- 'nil_ls',
+
+        -- Linters ---
+        'biome',
+        'eslint_d',
+        'gitlint',
         'markdown-oxide',
         'mdx-analyzer',
         'markdownlint',
         'markdownlint-cli2',
         'markdown-toc',
+        'shellcheck',
+        'sqlfluff',
+        'vale',
+        'yamllint',
+        -- 'eslint',
+        -- 'eslint-lsp',
+        -- 'nixpkgs-fmt',
+
+        -- Formatters --
+        'fixjson',
+        'pint',
+        'phpcs',
+        'luaformatter',
+        'php-cs-fixer',
         'prettierd',
         'prettier',
-        'biome',
-        'prismals',
+        'sql-formatter',
         'tailwindcss-language-server',
-        'biome',
-        -- 'emmet-ls',
-        'stylua', -- Used to format Lua code
-        -- 'nil_ls',
-        -- 'nixpkgs-fmt',
+        'yamlfmt',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -390,6 +382,29 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
       end
     end,
+  },
+  {
+    'gbprod/phpactor.nvim',
+    -- build = function() require('phpactor.handler.update') end, -- To install/update phpactor when installing this plugin
+    opts = {
+      install = {
+        bin = vim.fn.stdpath 'data' .. '/mason/bin/phpactor',
+      },
+      lspconfig = {
+        enabled = false,
+      },
+    },
+    config = function(_, opts)
+      local phpactor = require 'phpactor'
+      phpactor.setup(opts)
+
+      local map = require('tingexe.util').map
+      map('n', '<leader>pa', phpactor.rpc)
+    end,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'neovim/nvim-lspconfig',
+    },
   },
 
   { -- Autoformat
@@ -441,6 +456,7 @@ return {
         --
         --
         php = { 'pint', 'php_cs_fixer', stop_after_first = true },
+        blade = { 'prettier', 'blade-formatter', stop_after_first = true },
         prisma = { 'prettierd', 'prettier', stop_after_first = true },
         html = { 'prettier' },
         json = { 'prettier' },
