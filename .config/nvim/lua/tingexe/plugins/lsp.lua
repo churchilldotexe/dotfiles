@@ -147,6 +147,14 @@ return {
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
+        -- blade = {
+        --   cmd = { 'laravel-dev-generators', 'lsp' },
+        --   filetypes = { 'blade' },
+        --   root_dir = function(fname)
+        --     return require('lspconfig.util').find_git_ancestor(fname)
+        --   end,
+        --   settings = {},
+        -- },
 
         marksman = {
           cmd = { 'marksman', 'server' },
@@ -351,6 +359,7 @@ return {
         -- 'nixpkgs-fmt',
 
         -- Formatters --
+        'phpcbf',
         'blade-formatter',
         'fixjson',
         'pint',
@@ -384,6 +393,7 @@ return {
       end
     end,
   },
+
   {
     'gbprod/phpactor.nvim',
     -- build = function() require('phpactor.handler.update') end, -- To install/update phpactor when installing this plugin
@@ -405,118 +415,6 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
       'neovim/nvim-lspconfig',
-    },
-  },
-
-  { -- Autoformat
-    'stevearc/conform.nvim',
-    event = { 'BufReadPre', 'BufNewFile' },
-    cmd = { 'ConformInfo' },
-    keys = {
-      {
-        '<leader>mf',
-        function()
-          require('conform').format { async = true, lsp_format = 'fallback' }
-        end,
-        mode = '',
-        desc = '[M]anual [F]ormat buffer',
-      },
-    },
-    opts = {
-
-      -- default_format_opts = {
-      --   timeout_ms = 3000,
-      --   async = false, -- not recommended to change
-      --   quiet = false, -- not recommended to change
-      --   lsp_format = 'fallback', -- not recommended to change
-      -- },
-      notify_on_error = false,
-      format_on_save = function(bufnr)
-        -- Disable "format_on_save lsp_fallback" for languages that don't
-        -- have a well standardized coding style. You can add additional
-        -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { c = true, cpp = true }
-        local lsp_format_opt
-        if disable_filetypes[vim.bo[bufnr].filetype] then
-          lsp_format_opt = 'never'
-        else
-          lsp_format_opt = 'fallback'
-        end
-        return {
-          timeout_ms = 500,
-          lsp_format = lsp_format_opt,
-        }
-      end,
-      formatters_by_ft = {
-        lua = { 'stylua' },
-        -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
-        --
-        -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
-        --
-        --
-        php = { 'pint', 'php_cs_fixer', stop_after_first = true },
-        blade = { 'pint', 'prettier', 'blade-formatter', stop_after_first = true },
-        prisma = { 'prettierd', 'prettier', stop_after_first = true },
-        html = { 'prettier' },
-        json = { 'prettier' },
-        yaml = { 'prettier' },
-        -- markdown = { 'prettier' },
-        astro = { 'prettierd', 'prettier', 'biome', stop_after_first = true },
-        javascript = { 'prettierd', 'prettier', 'biome', stop_after_first = true },
-        typescript = { 'prettierd', 'prettier', 'biome', stop_after_first = true },
-        javascriptreact = { 'prettierd', 'prettier', 'biome', stop_after_first = true },
-        typescriptreact = { 'prettierd', 'prettier', 'biome', stop_after_first = true },
-        ['markdown'] = { 'prettier', 'markdownlint-cli2', 'markdown-toc' },
-        ['markdown.mdx'] = { 'prettier', 'markdownlint-cli2', 'markdown-toc' },
-      },
-      formatter = {
-        ['markdown-toc'] = {
-          condition = function(_, ctx)
-            for _, line in ipairs(vim.api.nvim_buf_get_lines(ctx.buf, 0, -1, false)) do
-              if line:find '<!%-%- toc %-%->' then
-                return true
-              end
-            end
-          end,
-        },
-        ['markdownlint-cli2'] = {
-          condition = function(_, ctx)
-            local diag = vim.tbl_filter(function(d)
-              return d.source == 'markdownlint'
-            end, vim.diagnostic.get(ctx.buf))
-            return #diag > 0
-          end,
-        },
-      },
-      --[[
-      formatters = {
-        injected = { options = { ignore_errors = true } },
-        -- # Example of using dprint only when a dprint.json file is present
-        -- dprint = {
-        --   condition = function(ctx)
-        --     return vim.fs.find({ "dprint.json" }, { path = ctx.filename, upward = true })[1]
-        --   end,
-        -- },
-        --
-        prettier = {
-          condition = function(_, ctx)
-            return M.has_parser(ctx) and (vim.g.lazyvim_prettier_needs_config ~= true or M.has_config(ctx))
-          end,
-        },
-
-        biome = {
-          condition = function(ctx)
-            return vim.fs.find({ 'biome.json' }, { path = ctx.filename, upward = true })[1]
-          end,
-        },
-        -- # Example of using shfmt with extra args
-        -- shfmt = {
-        --   prepend_args = { "-i", "2", "-ci" },
-        -- },
-      },
-      ]]
     },
   },
 }

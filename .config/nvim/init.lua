@@ -65,6 +65,9 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
+  'triglav/vim-visual-increment', -- Increments columns of numbers
+  'tpope/vim-unimpaired', -- Complementary pairs of mappings []
+  'tpope/vim-repeat', -- Enables . repeat for some plugins
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   {
     -- Powerful Git integration for Vim
@@ -74,12 +77,28 @@ require('lazy').setup({
     -- GitHub integration for vim-fugitive
     'tpope/vim-rhubarb',
   },
+  'nelstrom/vim-visual-star-search', -- use * to search visual text
+  'jessarcher/vim-heritage', -- auto create non-existant dirs
+  'sickill/vim-pasta', -- auto indent when pasting (may need to exclude fugitive)
+  'machakann/vim-swap', -- Swaps args in a function call
   { 'xiyaowong/transparent.nvim' },
   -- See `:help gitsigns` to understand what the configuration keys do
 
   -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim',  event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
+  {
+    'neomake/neomake',
+    {
+      'radenling/vim-dispatch-neovim',
+      dependencies = 'tpope/vim-dispatch',
+    },
+  },
+
+  {
+    'lervag/vimtex',
+    enabled = false,
+  },
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
