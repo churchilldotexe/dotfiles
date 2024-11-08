@@ -142,34 +142,16 @@ nix store gc # clean up nix
 
 [home-manager manual](https://nix-community.github.io/home-manager/index.xhtml#sec-usage-rollbacks)
 
-<!--TODO: integrate with git-->
-
 ### setting up git and github cli
 
 - git
 
-```bash
-sudo bash -c "apt update && apt upgrade"
-sudo apt install git gh
+To setup **git** run the Interactive in `~/.config/script/git-install.sh`
 
-git config --global user.name "Your github username"
-git config --global user.email "your@email.address"
+> [!note] before running
+> Make sure to make the script executable with this command `chmod +x ~/.config/script/git-install.sh`
 
-# generate ssh key
-ssh-keygen -t ed25519 -C "you@email.address"
-eval"$(ssh-agent -S)"
-# optional: in case its not yet added
-ssh-add ~/.ssh/id_ed25519
-
-# Show public key (to add to github)
-cat ~/.ssh/id_ed25519.pub
-
-# Optional git config global
-git config --global init.defaultBranch main
-git config --global color.ui auto
-git config --global core.editor "nvim"
-git config --global pull.rebase
-```
+This will require you to input your github user, email and some prompt questions.
 
 - github cli auth
 
