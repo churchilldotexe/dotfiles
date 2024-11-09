@@ -15,6 +15,7 @@ alias apt-sync='sudo bash -c "apt update && apt upgrade"'
 # alias ap="ansible-playbook"
 
 # alias code="open -a 'Visual Studio Code'"
+alias code="prime-run code"
 
 alias gprj="cd $HOME/Projects"
 
@@ -29,6 +30,8 @@ alias cl="clear"
 
 alias N="nvim ."
 alias n="nvim"
+
+alias vnvim=":e ~/.config/nvim-vscode/init.lua"
 
 alias p="pnpm"
 

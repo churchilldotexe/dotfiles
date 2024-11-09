@@ -105,8 +105,6 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'scroll half page up and stay screen center' })
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'scroll half page down and stay screen center' })
 vim.keymap.set('n', '<leader>j', "'", { desc = '[J]ump on marker' })
-vim.keymap.set('n', 'n', 'nzzzv')
-vim.keymap.set('n', 'N', 'Nzzzv')
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`

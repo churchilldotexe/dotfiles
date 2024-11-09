@@ -39,6 +39,9 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # source /home/ting/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
+# ---- locales ---- # 
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 
 # ---- oh my posh ---- # 
