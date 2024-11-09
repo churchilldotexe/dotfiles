@@ -1,0 +1,74 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+    "key": "ctrl-h",
+    "command": "workbench.action.navigateLeft"
+  },
+  {
+    "key": "ctrl-l",
+    "command": "workbench.action.navigateRight"
+  },
+  {
+    "key": "ctrl-k",
+    "command": "workbench.action.navigateUp"
+  },
+  {
+    "key": "ctrl-j",
+    "command": "workbench.action.navigateDown"
+  },
+    {
+    "key": "space e f",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.toggleSidebarVisibility",
+        "workbench.action.focusActiveEditorGroup"
+      ]
+    },
+    "when": "sideBarFocus && !inputFocus"
+  },
+  {"args":"<C-m>","command": "vscode-neovim.send","key": "ctrl+m","when": "editorFocus && neovim.init"},
+    {
+        "args": "<CS-m>",
+        "command": "vscode-neovim.send",
+        "key": "ctrl+shift+m",
+        "when": "editorFocus && neovim.init"
+    },
+{
+    "key": "space s f",
+    "command": "workbench.action.quickOpen",
+    "when": "sideBarFocus || !inputFocus"
+  },
+{
+    "key": "space s g",
+    "command": "workbench.action.findInFiles",
+    "when": "sideBarFocus || !inputFocus"
+},
+{
+    "key": "ctrl+n",
+    "command": "-workbench.action.files.newUntitledFile"
+},
+// {
+//     "key": "ctrl+x",
+//     "command": "workbench.action.closeWindow",
+//     "when":"inQuickOpen && neovim.mode != 'cmdline'"
+// }
+// open in split in explorer
+    {
+    "key": "s",
+    "command": "explorer.openToSide",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "shift-s",
+    "command": "runCommands",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus",
+    "args": {
+      "commands": [
+        "workbench.action.splitEditorDown",
+        "explorer.openAndPassFocus",
+        "workbench.action.closeOtherEditors"
+      ]
+    }
+  },
+]
