@@ -15,7 +15,7 @@ alias apt-sync='sudo bash -c "apt update && apt upgrade"'
 # alias ap="ansible-playbook"
 
 # alias code="open -a 'Visual Studio Code'"
-alias code="prime-run code"
+# alias code="game-performance code"
 
 alias gprj="cd $HOME/Projects"
 
