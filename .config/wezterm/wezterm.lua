@@ -1,5 +1,5 @@
 local wezterm = require("wezterm")
-local gpus = wezterm.gui.enumerate_gpus()
+-- local gpus = wezterm.gui.enumerate_gpus()
 local bgOpacity = 0.75
 -- local backdrop = "Acrylic"
 local act = wezterm.action
@@ -8,14 +8,15 @@ return {
 	------- themes and fonts ----
 	---
 	color_scheme = "Kanagawa (Gogh)",
-	font_size = 15.0,
+	font_size = 15,
 	-- font = wezterm.font("JetBrains Mono"),
 	-- font = wezterm.font("ComicShannsMono Nerd Font"),
 	-- font = wezterm.font("FiraCode Nerd Font", { weight = "Medium" }),
 	-- font = wezterm.font("Fira Code Script", { weight = "Medium" }),
-	font = wezterm.font("ZedMono Nerd Font", { weight = "Regular", stretch = "Normal" }),
+	font = wezterm.font("FantasqueSansM Nerd Font", { weight = "Regular" }),
+	-- font = wezterm.font("ZedMono Nerd Font", { weight = "Regular", stretch = "Normal" }),
 	cell_width = 1.01,
-	xcursor_theme = "Adwaita",
+	-- xcursor_theme = "Adwaita",
 
 	---
 	------- Layout --------
@@ -55,7 +56,7 @@ return {
 
 	-- enable_wayland = false,
 	term = "wezterm",
-	max_fps = 240,
+	max_fps = 120,
 	window_close_confirmation = "NeverPrompt",
 	enable_tab_bar = false,
 	window_decorations = "RESIZE | TITLE",
@@ -63,10 +64,10 @@ return {
 	-- window_decorations = "TITLE | RESIZE",
 
 	-- GPU
-	front_end = "WebGpu",
+	-- front_end = "WebGpu",
 	-- prefer_egl = true,
-	webgpu_preferred_adapter = gpus[1],
-	webgpu_power_preference = "HighPerformance",
+	-- webgpu_preferred_adapter = gpus[1],
+	-- webgpu_power_preference = "HighPerformance",
 
 	---- KeyBindings -------
 
