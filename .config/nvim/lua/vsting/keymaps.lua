@@ -71,7 +71,12 @@ end, { silent = true })
 
 -- go to git(like lazy git)
 vim.keymap.set('n', '<leader>lg', function()
-  vscode.call 'workbench.scm.focus'
+  vscode.call('workbench.scm.focus', { args = { 'scmInput' } })
+end, { silent = true })
+
+-- command palettte
+vim.keymap.set('n', '<leader>sp', function()
+  vscode.call 'workbench.action.showCommands'
 end, { silent = true })
 
 -- incremental select
@@ -80,6 +85,13 @@ vim.keymap.set({ 'n', 'x' }, '<C-n>', function()
 end, { silent = true })
 
 -- inQuickOpen && neovim.mode != 'cmdline'
+
+--creating new line that stays in NORMAL MODE
+keymap.set('n', '<leader>o', 'o<Esc>', { desc = "create new line 'under' the cursor and back to normal mode" })
+keymap.set('n', '<leader>O', 'O<Esc>', { desc = "create new line 'above' the cursor and back to normal mode" })
+
+keymap.set('n', '<leader>a', 'a <Esc>h', { desc = '[A]ppend one whitespace forward  ' })
+keymap.set('n', '<leader>i', 'i <Esc>l', { desc = '[I]nsert one whitespace backward  ' })
 
 -- Opening File Explorer
 vim.keymap.set({ 'n', 'x' }, '<leader>ef', function()

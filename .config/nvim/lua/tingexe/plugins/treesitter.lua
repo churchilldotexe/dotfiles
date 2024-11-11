@@ -85,12 +85,12 @@ return { -- Highlight, edit, and navigate code
 
     parser_config.blade = {
       install_info = {
-        -- url = 'https://github.com/EmranMR/tree-sitter-blade',
-        url = '~/sources/treesitter/tree-sitter-blade',
+        url = 'https://github.com/EmranMR/tree-sitter-blade',
+        -- url = '~/sources/treesitter/tree-sitter-blade',
         files = { 'src/parser.c' },
         generate_requires_npm = true,
         requires_generate_from_grammar = true,
-        -- branch = 'main',
+        branch = 'main',
       },
 
       filetype = 'blade',

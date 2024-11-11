@@ -72,4 +72,14 @@ return {
       { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'Open lazy git' },
     },
   },
+  -- diffview
+  -- https://github.com/sindrets/diffview.nvim
+  {
+    'sindrets/diffview.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    cmd = 'DiffviewOpen',
+    config = true,
+  },
 }
