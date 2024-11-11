@@ -25,7 +25,7 @@ return {
         },
       },
       formatters_by_ft = {
-        blade = { 'prettier', 'blade-formatter', stop_after_first = true },
+        blade = { 'pint', 'prettier', 'blade-formatter', stop_after_first = true },
         json = { 'prettier', 'jq', stop_after_first = true },
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
         lua = { 'stylua' },

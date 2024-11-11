@@ -53,7 +53,20 @@ require('lazy').setup {
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
+      require('mini.surround').setup {
+        mappings = {
+          add = 'ys', -- Add surrounding in Normal and Visual modes
+          delete = 'ds', -- Delete surrounding
+          find = 'fs', -- Find surrounding (to the right)
+          find_left = 'Fs', -- Find surrounding (to the left)
+          -- highlight = 'hs', -- Highlight surrounding
+          replace = 'cs', -- Replace surrounding
+          -- update_n_lines = 'ns', -- Update `n_lines`
+
+          suffix_last = 'p', -- Suffix to search with "prev" method
+          suffix_next = 'n', -- Suffix to search with "next" method
+        },
+      }
     end,
   },
   {
@@ -80,6 +93,46 @@ require('lazy').setup {
         fg = 'white',
         default = true,
       })
+    end,
+  },
+  {
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      local harpoon = require 'harpoon'
+
+      -- REQUIRED
+      harpoon:setup()
+      -- REQUIRED
+
+      vim.keymap.set('n', '<leader>ha', function()
+        harpoon:list():add()
+      end)
+      vim.keymap.set('n', '<leader>he', function()
+        harpoon.ui:toggle_quick_menu(harpoon:list())
+      end)
+
+      vim.keymap.set('n', '<leader>1', function()
+        harpoon:list():select(1)
+      end)
+      vim.keymap.set('n', '<leader>2', function()
+        harpoon:list():select(2)
+      end)
+      vim.keymap.set('n', '<leader>3', function()
+        harpoon:list():select(3)
+      end)
+      vim.keymap.set('n', '<leader>4', function()
+        harpoon:list():select(4)
+      end)
+
+      -- Toggle previous & next buffers stored within Harpoon list
+      vim.keymap.set('n', '<leader>hp', function()
+        harpoon:list():prev()
+      end)
+      vim.keymap.set('n', '<leader>hn', function()
+        harpoon:list():next()
+      end)
     end,
   },
 }
