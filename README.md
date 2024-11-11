@@ -168,6 +168,28 @@ gh auth login
 - `zoxide` - for a better `cd` command since it is already configure in .zshrc, only need to install it
 - `eza` - a better looking cd, also configured with .zshrc so only need to install
 
+### script to install nvm,tpm,php/laravel/composer
+
+go to script file
+
+```bash
+cd ~/.config/script/
+```
+
+and run this command:
+
+```bash
+chmod +x essentials.sh
+```
+
+then run
+
+```bash
+./essentials.sh
+```
+
+Answer the prompts if you want to install nvm,tpm,or php/laravel/composer
+
 ### setting up nvm
 
 Still looking for a way to integrate nvm with nix for now:
@@ -197,7 +219,7 @@ npm install -g neovim
 using [php.new](https://php.new/)
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://php.new/install/mac)"
+ /bin/bash -c "$(curl -fsSL https://php.new/install/linux)"
 ```
 
 then source `source ~/.zshrc`
