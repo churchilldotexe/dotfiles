@@ -25,8 +25,44 @@
         "workbench.action.focusActiveEditorGroup"
       ]
     },
-    "when": "sideBarFocus && !inputFocus"
+    // "when": " ( sideBarFocus && activeViewlet == 'workbench.view.explorer' ) && !inputFocus"
+    "when": "  !inputFocus"
   },
+    {
+    "key": "space s f",
+    "command": "workbench.action.quickOpen",
+    "when": " !inputFocus"
+  },
+    {
+        "key": "space s g",
+        "command": "workbench.action.findInFiles",
+        "when": "  !inputFocus"
+    },
+
+    // command palette
+    {
+        "key": "space s p",
+        "command": "workbench.action.showCommands",
+        "when": "!inputFocus"
+    },
+
+// {
+//     "key": "space l g",
+//     "command": "workbench.scm.focus",
+//     "args":"scmInput",
+//     "when": " ( sideBarFocus && !extensionEditorFocus ) || !inputFocus"
+// },
+{
+    "key": "space l g",
+    "command": "workbench.scm.focus",
+    "args":"scmInput",
+    "when": "!inputFocus"
+},
+{
+    "key": "ctrl+n",
+    "command": "-workbench.action.files.newUntitledFile"
+},
+
   {"args":"<C-m>","command": "vscode-neovim.send","key": "ctrl+m","when": "editorFocus && neovim.init"},
     {
         "args": "<CS-m>",
@@ -34,20 +70,6 @@
         "key": "ctrl+shift+m",
         "when": "editorFocus && neovim.init"
     },
-{
-    "key": "space s f",
-    "command": "workbench.action.quickOpen",
-    "when": "sideBarFocus || !inputFocus"
-  },
-{
-    "key": "space s g",
-    "command": "workbench.action.findInFiles",
-    "when": "sideBarFocus || !inputFocus"
-},
-{
-    "key": "ctrl+n",
-    "command": "-workbench.action.files.newUntitledFile"
-},
 // {
 //     "key": "ctrl+x",
 //     "command": "workbench.action.closeWindow",
