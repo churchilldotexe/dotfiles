@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./apps
   ];
@@ -8,12 +10,12 @@
   home.homeDirectory = "/home/ting";
   home.stateVersion = "23.05";
   targets.genericLinux.enable = true;
-  nixpkgs.config.allowUnfree=true;
+  nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     neofetch
- # zsh
-  # zsh-autocomplete
-  # zsh-autosuggestions
+    # zsh
+    # zsh-autocomplete
+    # zsh-autosuggestions
     git
     gh
     stow
@@ -26,10 +28,6 @@
     gnumake
     neovim
     lazygit
-    # php
-    # sqlite
-    # mysql84
-    # postgresql
     lua51Packages.lua
     luajitPackages.luarocks
     fd
@@ -41,9 +39,13 @@
     yarn
     bun
     turso-cli
+    #for nix syntax
+    alejandra
+    deadnix
+    statix
   ];
   programs.home-manager.enable = true;
-programs = {
+  programs = {
     fzf = {
       enable = true;
       enableZshIntegration = true;
@@ -58,9 +60,8 @@ programs = {
   #   enable = true;
   # };
 }
-#installing home-manager cli 
+#installing home-manager cli
 #nix run nixpkgs#home-manager -- switch --flake ~/nix/#$USER
-
 #home-manager switch --flake ~/nix/#$USER
 # https://tech.aufomm.com/my-nix-journey-use-nix-with-ubuntu/
 # https://search.nixos.org/packages

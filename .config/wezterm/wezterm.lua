@@ -1,8 +1,19 @@
 local wezterm = require("wezterm")
--- local gpus = wezterm.gui.enumerate_gpus()
 local bgOpacity = 0.75
--- local backdrop = "Acrylic"
 local act = wezterm.action
+
+wezterm.on("update-status", function(window, pane)
+	local overrides = window:get_config_overrides() or {}
+	if window:is_focused() then
+		overrides.color_scheme = "Kanagawa (Gogh)"
+		overrides.text_background_opacity = 1
+	else
+		overrides.color_scheme = "Broadcast (Gogh)"
+		overrides.text_background_opacity = 0
+	end
+	window:set_config_overrides(overrides)
+end)
+
 return {
 	---
 	------- themes and fonts ----
@@ -15,21 +26,25 @@ return {
 	-- font = wezterm.font("Fira Code Script", { weight = "Medium" }),
 	font = wezterm.font("FantasqueSansM Nerd Font", { weight = "Regular" }),
 	-- font = wezterm.font("ZedMono Nerd Font", { weight = "Regular", stretch = "Normal" }),
-	cell_width = 1.01,
+	-- cell_width = 1.01,
 	-- xcursor_theme = "Adwaita",
 
 	---
 	------- Layout --------
 	---
 	-- win32_system_backdrop = backdrop,
+	inactive_pane_hsb = {
+		saturation = 0.9,
+		brightness = 0.8,
+	},
 	use_fancy_tab_bar = false,
 	window_background_opacity = bgOpacity,
 	window_frame = {
-		inactive_titlebar_bg = "#353535",
+		inactive_titlebar_bg = "#000000",
 		active_titlebar_bg = "#2b2042",
-		inactive_titlebar_fg = "#cccccc",
+		inactive_titlebar_fg = "#000000",
 		active_titlebar_fg = "#ffffff",
-		inactive_titlebar_border_bottom = "#2b2042",
+		inactive_titlebar_border_bottom = "#000000",
 		active_titlebar_border_bottom = "#2b2042",
 		button_fg = "#cccccc",
 		button_bg = "#2b2042",
@@ -56,7 +71,7 @@ return {
 
 	-- enable_wayland = false,
 	term = "wezterm",
-	max_fps = 120,
+	max_fps = 240,
 	window_close_confirmation = "NeverPrompt",
 	enable_tab_bar = false,
 	window_decorations = "RESIZE | TITLE",
@@ -81,6 +96,7 @@ return {
 		end
 		window:set_config_overrides(overrides)
 	end),
+
 	--[[
 	wezterm.on("toggle-backdrop", function(window, pane)
 		local overrides = window:get_config_overrides() or {}

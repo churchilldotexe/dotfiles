@@ -1,0 +1,45 @@
+-- AstroCommunity: import any community modules here
+-- We import this file in `lazy_setup.lua` before the `plugins/` folder.
+-- This guarantees that the specs are processed before any user plugins.
+
+---@type LazySpec
+return {
+  "AstroNvim/astrocommunity",
+  -- { import = "astrocommunity.completion.blink-cmp" },
+  -- { import = "astrocommunity.editing-support.auto-save-nvim" },
+  { import = "astrocommunity.editing-support.conform-nvim" },
+  { import = "astrocommunity.editing-support.ultimate-autopair-nvim" },
+  { import = "astrocommunity.git.diffview-nvim" },
+  { import = "astrocommunity.git.gitgraph-nvim" },
+  { import = "astrocommunity.icon.mini-icons" },
+  { import = "astrocommunity.lsp.delimited-nvim" },
+  { import = "astrocommunity.lsp.garbage-day-nvim" },
+  { import = "astrocommunity.lsp.inc-rename-nvim" },
+  -- { import = "astrocommunity.lsp.lsp-lens-nvim" },
+  -- { import = "astrocommunity.lsp.lsp-signature-nvim" },
+  { import = "astrocommunity.lsp.ts-error-translator-nvim" },
+  { import = "astrocommunity.lsp.nvim-lint" },
+  { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
+  { import = "astrocommunity.markdown-and-latex.peek-nvim" },
+  { import = "astrocommunity.motion.flash-nvim" },
+  { import = "astrocommunity.motion.marks-nvim" },
+  { import = "astrocommunity.motion.mini-ai" },
+  { import = "astrocommunity.motion.nvim-surround" },
+  { import = "astrocommunity.pack.astro" },
+  { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.full-dadbod" },
+  { import = "astrocommunity.pack.html-css" },
+  { import = "astrocommunity.pack.json" },
+  { import = "astrocommunity.pack.laravel" },
+  { import = "astrocommunity.pack.lua" },
+  { import = "astrocommunity.pack.markdown" },
+  { import = "astrocommunity.pack.nix" },
+  -- { import = "astrocommunity.pack.sql" },
+  { import = "astrocommunity.pack.tailwindcss" },
+  { import = "astrocommunity.pack.typescript-all-in-one" },
+  { import = "astrocommunity.programming-language-support.rest-nvim" },
+  { import = "astrocommunity.syntax.vim-cool" },
+  { import = "astrocommunity.utility.hover-nvim" },
+  { import = "astrocommunity.workflow.hardtime-nvim" },
+  -- import/override with your plugins folder
+}

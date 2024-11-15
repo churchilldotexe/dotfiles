@@ -16,7 +16,7 @@ return {
   end,
   keys = {
     {
-      '<leader>db',
+      '<leader>tb',
       '<cmd>Neotree close<cr><cmd>tabnew<cr><bar><bar><cmd>DBUI<cr>',
     },
   },

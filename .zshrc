@@ -82,3 +82,5 @@ export PATH="$PATH:/home/tingexe/.turso"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export PATH="/home/ting/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/ting/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+export FZF_DEFAULT_COMMAND='fd'
+. "/home/ting/.deno/env"
