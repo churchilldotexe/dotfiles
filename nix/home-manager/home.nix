@@ -26,7 +26,6 @@
     xclip
     gcc
     gnumake
-    neovim
     lazygit
     lua51Packages.lua
     luajitPackages.luarocks
@@ -39,6 +38,9 @@
     yarn
     bun
     turso-cli
+    #neovim ralated pkgs
+    neovim
+    tree-sitter
     #for nix syntax
     alejandra
     deadnix

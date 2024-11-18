@@ -21,6 +21,11 @@ if [[ $set_neovim =~ ^[Yy]$ ]]; then
 fi
 echo "Neovim for node dependencies successfully installed"
 
+echo "Installing Deno...." 
+curl -fsSL https://deno.land/install.sh | sh
+source ~/.zshrc
+echo "Deno successfully installed"
+
 read -p "Would you like to also install tmux package manager? (y/n): " set_tmp
 if [[ $set_tmp =~ ^[Yy]$ ]]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

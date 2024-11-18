@@ -17,18 +17,18 @@ echo "5) custom"
 read -p "Enter your choice (1-5): " editor_choice
 
 case $editor_choice in
-    1) editor="vim";;
-    2) editor="nvim";;
-    3) editor="nano";;
-    4) editor="code --wait";;
-    5)
-        read -p "Enter the command for your preferred editor: " custom_editor
-        editor=$custom_editor
-        ;;
-    *)
-        echo "Invalid choice. Defaulting to nvim."
-        editor="nvim"
-        ;;
+1) editor="vim" ;;
+2) editor="nvim" ;;
+3) editor="nano" ;;
+4) editor="code --wait" ;;
+5)
+    read -p "Enter the command for your preferred editor: " custom_editor
+    editor=$custom_editor
+    ;;
+*)
+    echo "Invalid choice. Defaulting to nvim."
+    editor="nvim"
+    ;;
 esac
 
 # Configure Git globals
@@ -61,11 +61,15 @@ echo "Adding SSH key..."
 ssh-add ~/.ssh/id_ed25519
 
 # Display public key
-echo -e "\n=== Your SSH Public Key ==="
-echo "Copy this key to your GitHub account (Settings -> SSH and GPG keys -> New SSH key):"
-echo "--------------------------------------------------------------------------------"
-cat ~/.ssh/id_ed25519.pub
-echo "--------------------------------------------------------------------------------"
+if which xclip >/dev/null; then
+    cat ~/.ssh/id_ed25519.pub | xclip -selection clipboard
+    echo "Copied to clipboard."
+    echo "You can now add this to your github account or use github cli then choose ssh."
+else
+    echo "looks like xclip is not installed. Here's your key:"
+    cat ~/.ssh/id_ed25519.pub
+    echo "Copy this key and put it in your github account or use github clip then choose ssh."
+fi
 
 # Verify settings
 echo -e "\nVerifying Git configurations:"
