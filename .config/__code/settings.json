@@ -17,92 +17,85 @@
     "editor.lineNumbers": "relative",
     "editor.guides.indentation": false,
     "workbench.colorTheme": "Kanagawa",
-
-
-      // Silence the Noise
-      "breadcrumbs.enabled": false,
-      "scm.diffDecorations": "none",
-      "editor.hover.delay": 1500,
-      "editor.hover.enabled": true,
-      "editor.matchBrackets": "never",
-      "workbench.tips.enabled": false,
-      "editor.colorDecorators": false,
-      "git.decorations.enabled": false,
-      "workbench.startupEditor": "none",
-      "editor.lightbulb.enabled": "off",
-      "editor.selectionHighlight": false,
-      "editor.overviewRulerBorder": false,
-      "editor.renderLineHighlight": "none",
-      "editor.occurrencesHighlight": "off",
-      "problems.decorations.enabled": false,
-      "editor.renderControlCharacters": false,
-      "editor.hideCursorInOverviewRuler": true,
-      "editor.gotoLocation.multipleReferences": "goto",
-      "editor.gotoLocation.multipleDefinitions": "goto",
-      "editor.gotoLocation.multipleDeclarations": "goto",
-      "workbench.editor.enablePreviewFromQuickOpen": false,
-      "editor.gotoLocation.multipleImplementations": "goto",
+    // Silence the Noise
+    "breadcrumbs.enabled": false,
+    "scm.diffDecorations": "none",
+    "editor.hover.delay": 1500,
+    "editor.hover.enabled": true,
+    "editor.matchBrackets": "never",
+    "workbench.tips.enabled": false,
+    "editor.colorDecorators": false,
+    "git.decorations.enabled": false,
+    "workbench.startupEditor": "none",
+    "editor.lightbulb.enabled": "off",
+    "editor.selectionHighlight": false,
+    "editor.overviewRulerBorder": false,
+    "editor.renderLineHighlight": "none",
+    "editor.occurrencesHighlight": "off",
+    "problems.decorations.enabled": false,
+    "editor.renderControlCharacters": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.gotoLocation.multipleReferences": "goto",
+    "editor.gotoLocation.multipleDefinitions": "goto",
+    "editor.gotoLocation.multipleDeclarations": "goto",
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "editor.gotoLocation.multipleImplementations": "goto",
     "editor.gotoLocation.multipleTypeDefinitions": "goto",
     "workbench.activityBar.location": "hidden",
-
-
-        // Typography
-        "editor.fontFamily": "ZedMono Nerd Font, Geist Mono, JetBrains Mono, Fira Code",
-        "editor.suggestFontSize": 16,
-        "editor.suggestLineHeight": 30,
-        "terminal.integrated.lineHeight": 1.5,
-        "terminal.integrated.fontSize": 16,
-        "editor.letterSpacing": 1,
-        //"editor.fontLigatures": true,
-        "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'calt', 'dlig'",
-        "diffEditor.wordWrap": "on",
-        "notebook.output.wordWrap": true,
-        "editor.fontSize": 15,
-        "editor.fontWeight": "400",
-        "editor.padding.top": 16,
+    // Typography
+    "editor.fontFamily": "ZedMono Nerd Font, Geist Mono, JetBrains Mono, Fira Code",
+    "editor.suggestFontSize": 16,
+    "editor.suggestLineHeight": 30,
+    "terminal.integrated.lineHeight": 1.5,
+    "terminal.integrated.fontSize": 16,
+    "editor.letterSpacing": 1,
+    //"editor.fontLigatures": true,
+    "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'calt', 'dlig'",
+    "diffEditor.wordWrap": "on",
+    "notebook.output.wordWrap": true,
+    "editor.fontSize": 15,
+    "editor.fontWeight": "400",
+    "editor.padding.top": 16,
     "editor.cursorBlinking": "solid",
     "editor.stickyScroll.enabled": false,
     //"editor.lineHeight": 32,
-
     "editor.inlineSuggest.suppressSuggestions": true,
-        "search.useIgnoreFiles": false,
-        "search.exclude": {
-            // Hide everything in /vendor, except the "laravel" and "livewire" folder.
-            "**/vendor/{[^l],?[^ai]}*": true,
-            // Hide everything in /public, except "index.php"
-            "**/public/{[^i],?[^n]}*": true,
-            "**/node_modules": true,
-            "**/dist": true,
-            "**/_ide_helper.php": true,
-            "**/composer.lock": true,
-            "**/package-lock.json": true,
-            "storage": true,
-            ".phpunit.result.cache": true
-        },
-        "editor.tokenColorCustomizations": {
+    "search.useIgnoreFiles": false,
+    "search.exclude": {
+        // Hide everything in /vendor, except the "laravel" and "livewire" folder.
+        "**/vendor/{[^l],?[^ai]}*": true,
+        // Hide everything in /public, except "index.php"
+        "**/public/{[^i],?[^n]}*": true,
+        "**/node_modules": true,
+        "**/dist": true,
+        "**/_ide_helper.php": true,
+        "**/composer.lock": true,
+        "**/package-lock.json": true,
+        "storage": true,
+        ".phpunit.result.cache": true
+    },
+    "editor.tokenColorCustomizations": {
         "textMateRules": [
             {
-              "scope": [
-                "comment",
-                "keyword",
-                "variable.language",
-                "entity.other.attribute-name.html",
-                "entity.other.attribute-name",
-                "keyword.control",
-                "storage.type",
-                "comment",
-                "comment.block",
-                "comment.line"
-              ],
-              "settings": {
-                "fontStyle": ""
-              }
+                "scope": [
+                    "comment",
+                    "keyword",
+                    "variable.language",
+                    "entity.other.attribute-name.html",
+                    "entity.other.attribute-name",
+                    "keyword.control",
+                    "storage.type",
+                    "comment",
+                    "comment.block",
+                    "comment.line"
+                ],
+                "settings": {
+                    "fontStyle": ""
+                }
             }
-          ]
+        ]
     },
-
-
-            /**
+    /**
     * Code
     **/
     // Include "-" in word selection.
@@ -118,15 +111,13 @@
         ".php_cs": "php",
         ".php_cs.dist": "php"
     },
-
     /**
     * PHP
     **/
     "php.suggest.basic": false,
     "[php]": {
-      "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
     },
-
     /**
     * Prettier
     **/
@@ -166,7 +157,6 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true
     },
-
     "editor.quickSuggestions": {
         "strings": true
     },
@@ -186,12 +176,10 @@
     "editor.accessibilitySupport": "off",
     "chat.editor.wordWrap": "on",
     "editor.wordWrap": "wordWrapColumn",
-
     "tailwindCSS.includeLanguages": {
         "plaintext": "html"
     },
     "tailwindCSS.experimental.configFile": null,
-
     "material-icon-theme.saturation": 0,
     "workbench.iconTheme": "eq-material-theme-icons-light",
     "workbench.sideBar.location": "right",
@@ -203,5 +191,7 @@
     "vscode-neovim.neovimInitVimPaths.linux": "/home/ting/.config/nvim/vsvim/init.lua",
     "git.openRepositoryInParentFolders": "never",
     "laravel-pint.enable": true,
-
+    "vscode_custom_css.imports": [
+        "file:///home/ting/.config/__code/custom-vscode.css",
+    ],
 }

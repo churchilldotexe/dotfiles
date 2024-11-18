@@ -21,6 +21,12 @@
    git clone "https://github.com/churchilldotexe/dotfiles" ~/dotfiles/
    ```
 
+   or via ssh
+
+   ```bash
+      git clone "git@github.com:churchilldotexe/dotfiles.git" ~/dotfiles/
+   ```
+
 > [!WARNING] About clone
 > if git already connected with github
 > Better clone with ssh and not the https.
