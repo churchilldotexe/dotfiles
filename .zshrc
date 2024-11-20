@@ -1,3 +1,5 @@
+fastfetch
+
 # aliases for .zsh folder
 [[ -f ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
 [[ -f ~/.zsh/functions.zsh ]] && source ~/.zsh/functions.zsh
@@ -32,11 +34,11 @@ bindkey '^[[B' history-search-forward
 # source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # if youre using arch linux and installed with pacman
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# source /home/ting/.nix-profile/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-# source /home/ting/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /home/ting/.nix-profile/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source /home/ting/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
 # ---- locales ---- # 
