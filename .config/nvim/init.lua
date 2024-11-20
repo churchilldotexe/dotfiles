@@ -1,9 +1,8 @@
-package.path = package.path .. ";/home/ting/.luarocks/share/lua/5.1/?.lua"
 package.path = package.path .. ";/home/ting/.luarocks/share/lua/5.1/?/init.lua"
 package.path = package.path
-  .. ";/nix/store/55bm3mxgsi87m4h053k37kpkz7asygz5-luarocks_bootstrap-3.11.1/share/lua/5.1/?.lua"
+  .. ";/nix/store/4w03kfgrpnyvmvzsdnzflam247zkmkzn-luarocks_bootstrap-3.11.1/share/lua/5.1/?.lua"
 package.path = package.path
-  .. ";/nix/store/55bm3mxgsi87m4h053k37kpkz7asygz5-luarocks_bootstrap-3.11.1/share/lua/5.1/?/init.lua"
+  .. ";/nix/store/4w03kfgrpnyvmvzsdnzflam247zkmkzn-luarocks_bootstrap-3.11.1/share/lua/5.1/?/init.lua"
 
 -- This file simply bootstraps the installation of Lazy.nvim and then calls other files for execution
 -- This file doesn't necessarily need to be touched, BE CAUTIOUS editing this file and proceed at your own risk.

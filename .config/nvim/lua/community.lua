@@ -38,8 +38,9 @@ return {
   -- { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.typescript-all-in-one" },
-  { import = "astrocommunity.programming-language-support.rest-nvim" },
+  -- { import = "astrocommunity.programming-language-support.rest-nvim" },
   { import = "astrocommunity.syntax.vim-cool" },
+  { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.utility.hover-nvim" },
   { import = "astrocommunity.workflow.hardtime-nvim" },
   -- import/override with your plugins folder

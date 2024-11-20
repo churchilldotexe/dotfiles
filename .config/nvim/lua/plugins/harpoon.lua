@@ -100,8 +100,21 @@ return {
   ]]
 
 return {
-  'ThePrimeagen/harpoon',
-  branch = 'harpoon2',
+  "ThePrimeagen/harpoon",
+  branch = "harpoon2",
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    {
+      "AstroNvim/astrocore",
+      opts = {
+        mappings = {
+          n = {
+            ["<Leader>h"] = false,
+          },
+        },
+      },
+    },
+  },
   opts = {
     menu = {
       width = vim.api.nvim_win_get_width(0) - 4,
@@ -113,29 +126,25 @@ return {
   keys = function()
     local keys = {
       {
-        '<A-a>',
-        function()
-          require('harpoon'):list():add()
-        end,
-        desc = 'Harpoon File',
+        "<leader>ha",
+        function() require("harpoon"):list():add() end,
+        desc = "Harpoon File",
       },
       {
-        '<A-e>',
+        "<leader>he",
         function()
-          local harpoon = require 'harpoon'
+          local harpoon = require "harpoon"
           harpoon.ui:toggle_quick_menu(harpoon:list())
         end,
-        desc = 'Harpoon Quick Menu',
+        desc = "Harpoon Quick Menu",
       },
     }
 
     for i = 1, 5 do
       table.insert(keys, {
-        '<A-' .. i .. '>',
-        function()
-          require('harpoon'):list():select(i)
-        end,
-        desc = 'Harpoon to File ' .. i,
+        "<leader>" .. i,
+        function() require("harpoon"):list():select(i) end,
+        desc = "Harpoon to File " .. i,
       })
     end
     return keys
