@@ -12,39 +12,62 @@
   targets.genericLinux.enable = true;
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
+    nerdfonts
+    fastfetch
     neofetch
+    bottom
+    btop
     # zsh
-    # zsh-autocomplete
-    # zsh-autosuggestions
+    zsh-autocomplete
+    zsh-autosuggestions
     git
     gh
     stow
-    ripgrep
-    fzf
     tmux
     unzip
     xclip
     gcc
     gnumake
-    lazygit
-    lua51Packages.lua
-    luajitPackages.luarocks
-    fd
-    btop
     oh-my-posh
     eza
     zoxide
+    lsd
+    kanata
+
+    #node and related pkgs
+    turso-cli
     pnpm
     yarn
     bun
-    turso-cli
+
+    #yazi and related pkgs
+    yazi
+    ffmpegthumbnailer
+    imagemagick
+    p7zip
+    poppler
+
     #neovim ralated pkgs
     neovim
     tree-sitter
+    gdu
+    lazygit
+    fd
+    ripgrep
+    fzf
+
     #for nix syntax
     alejandra
     deadnix
     statix
+
+    #lua
+    lua51Packages.lua
+    luajitPackages.luarocks
+    # lua51Packages.xml2lua
+    # lua51Packages.mimetypes
+    luajitPackages.mimetypes
+    luajitPackages.xml2lua
   ];
   programs.home-manager.enable = true;
   programs = {
