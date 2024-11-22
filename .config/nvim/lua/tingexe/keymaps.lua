@@ -157,6 +157,7 @@ keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "[N]oice [Dismis
 vim.keymap.set(
   { "n", "v" },
   "<leader>ldb",
-  "<cmd>Neotree close<cr><cmd>tabnew<cr><bar><bar><cmd>DBUI<cr>",
+  -- "<cmd>Neotree close<cr><cmd>tabnew<cr><bar><bar><cmd>DBUI<cr>",
+  "<cmd>tabnew<cr><bar><bar><cmd>DBUI<cr>",
   { desc = "[L]sp [D]ata[B]ase UI" }
 )

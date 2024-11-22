@@ -3,7 +3,8 @@ return {
   "mikavilpas/yazi.nvim",
   event = "VeryLazy",
   dependencies = {
-    "nvim-tree/nvim-web-devicons",
+    -- "nvim-tree/nvim-web-devicons",
+    "echasnovski/mini.icons",
     {
       "AstroNvim/astrocore",
       opts = {
