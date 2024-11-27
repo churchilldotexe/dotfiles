@@ -17,6 +17,9 @@ vim.filetype.add {
   },
 }
 
+-- initially stop supermaven
+vim.cmd "SupermavenStop"
+
 -- dadbod ui
 vim.keymap.set(
   { "n", "x" },

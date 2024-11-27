@@ -24,7 +24,24 @@ alias cl="clear"
 # alias ls="eza --icons --group-directories-first"
 # alias ll="eza --icons --group-directories-first -l"
 # alias lsa="ls -a"
-#alias grep='grep --color'
+#
+alias grep='grep --color'
+
+# ---- Eza (better ls) -----
+if command -v eza >/dev/null 2>&1; then
+    alias ls="eza --icons=always"
+    alias lsa="ls -a"
+fi
+
+# ---- lsd (better ls) -----
+if command -v lsd >/dev/null 2>&1; then
+    alias ls="lsd --color=always --icon=always"
+fi
+
+if command -v zoxide >/dev/null 2>&1; then
+  alias cd="z"
+fi 
+
 
 # alias prx="ssh root@prx-prod-2.home.clcreative.de"
 

@@ -1,9 +1,12 @@
 fastfetch
 
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 # aliases for .zsh folder
 [[ -f ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
 [[ -f ~/.zsh/functions.zsh ]] && source ~/.zsh/functions.zsh
-# [[ -f ~/.zsh/starship.zsh ]] && source ~/.zsh/starship.zsh
+[[ -f ~/.zsh/starship.zsh ]] && source ~/.zsh/starship.zsh
 [[ -f ~/.zsh/nvm.zsh ]] && source ~/.zsh/nvm.zsh
 [[ -f ~/.zsh/wsl2fix.zsh ]] && source ~/.zsh/wsl2fix.zsh
 # [[ -f ~/.zsh/goto.zsh ]] && source ~/.zsh/goto.zsh
@@ -47,18 +50,19 @@ export LC_ALL=en_US.UTF-8
 
 
 # ---- oh my posh ---- # 
-export PATH=$PATH:/home/ting/.local/bin
-eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/ting.toml)"
+export PATH=$PATH:/home/ting/.local/bin:/home/ting/.nix-profile/bin/
+# if command -v oh-my-posh >/dev/null 2>&1; then
+#   eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/ting.toml)"
+# fi
 
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
+fi
 
-# ---- Eza (better ls) -----
-
-alias ls="eza --icons=always"
 
 # ---- Zoxide (better cd) ----
 eval "$(zoxide init zsh)"
 
-alias cd="z"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

@@ -161,3 +161,5 @@ vim.keymap.set(
   "<cmd>tabnew<cr><bar><bar><cmd>DBUI<cr>",
   { desc = "[L]sp [D]ata[B]ase UI" }
 )
+
+keymap.set("n", "<leader>smt", "<cmd>SupermavenToggle<CR>", { desc = "[S]uper[M]aven [T]oggle" })

@@ -6,9 +6,15 @@
   imports = [
     ./apps
   ];
-  home.username = "ting";
-  home.homeDirectory = "/home/ting";
-  home.stateVersion = "23.05";
+  home = {
+    username = "ting";
+    homeDirectory = "/home/ting";
+    stateVersion = "23.05";
+    sessionVariables = {
+      LANG = "en_US.UTF-8";
+      LC_ALL = "en_US.UTF-8";
+    };
+  };
   targets.genericLinux.enable = true;
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
@@ -17,9 +23,9 @@
     neofetch
     bottom
     btop
-    # zsh
-    zsh-autocomplete
-    zsh-autosuggestions
+    kanata
+
+    #essentials
     git
     gh
     stow
@@ -28,11 +34,16 @@
     xclip
     gcc
     gnumake
-    oh-my-posh
-    eza
+
+    #shell related pkgs
+    # zsh
+    zsh-autocomplete
+    zsh-autosuggestions
+    # eza
     zoxide
     lsd
-    kanata
+    # oh-my-posh
+    starship
 
     #node and related pkgs
     turso-cli
