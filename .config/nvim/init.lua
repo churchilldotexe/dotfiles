@@ -24,4 +24,5 @@ end
 require "lazy_setup"
 require "tingexe.keymaps"
 require "tingexe.options"
+require "tingexe.autocmds"
 require "polish"

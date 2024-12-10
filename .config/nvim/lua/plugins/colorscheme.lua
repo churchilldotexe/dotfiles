@@ -1,13 +1,40 @@
 return {
 
-  { 'xiyaowong/transparent.nvim' },
+  { "xiyaowong/transparent.nvim" },
   {
-    'rebelot/kanagawa.nvim',
+    "sho-87/kanagawa-paper.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      require("kanagawa-paper").setup {
+        undercurl = true,
+        transparent = false,
+        gutter = true,
+        dimInactive = true, -- disabled when transparent
+        terminalColors = true,
+        commentStyle = { italic = true },
+        functionStyle = { italic = false },
+        keywordStyle = { italic = false, bold = false },
+        statementStyle = { italic = false, bold = false },
+        typeStyle = { italic = false },
+        colors = { theme = {}, palette = {} }, -- override default palette and theme colors
+        overrides = function() -- override highlight groups
+          return {}
+        end,
+      }
+
+      -- vim.cmd "colorscheme kanagawa-paper"
+    end,
+  },
+  {
+    "rebelot/kanagawa.nvim",
     enabled = true,
+    lazy = false,
     priority = 1000,
     config = function()
       -- Default options:
-      require('kanagawa').setup {
+      require("kanagawa").setup {
         compile = false, -- enable compiling the colorscheme
         undercurl = true, -- enable undercurls
         commentStyle = { italic = true },
@@ -25,9 +52,9 @@ return {
         overrides = function(colors) -- add/modify highlights
           local theme = colors.theme
           return {
-            NormalFloat = { bg = 'none' },
-            FloatBorder = { bg = 'none' },
-            FloatTitle = { bg = 'none' },
+            NormalFloat = { bg = "none" },
+            FloatBorder = { bg = "none" },
+            FloatTitle = { bg = "none" },
 
             -- Save an hlgroup with dark background and dimmed foreground
             -- so that you can use it where your still want darker windows.
@@ -50,121 +77,113 @@ return {
 
             -- Cmp popup
             Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
-            PmenuSel = { fg = 'NONE', bg = theme.ui.bg_p2 },
+            PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
             PmenuSbar = { bg = theme.ui.bg_m1 },
             PmenuThumb = { bg = theme.ui.bg_p2 },
           }
         end,
-        theme = 'dragon', -- Load "wave" theme when 'background' option is not set
+        theme = "dragon", -- Load "wave" theme when 'background' option is not set
         background = { -- map the value of 'background' option to a theme
-          dark = 'wave', -- try "dragon" !
-          light = 'lotus',
+          -- dark = "dragon", -- try "dragon" !
+          dark = "wave", -- try "dragon" !
+          light = "lotus",
         },
       }
       -- setup must be called before loading
-      vim.cmd 'colorscheme kanagawa'
+      vim.cmd "colorscheme kanagawa"
     end,
   },
 
   {
-    'neanias/everforest-nvim',
+    "neanias/everforest-nvim",
     version = false,
     lazy = false,
     priority = 1000, -- make sure to load this before all the other start plugins
     -- Optional; default configuration will be used if setup isn't called.
     opts = {},
     config = function()
-      require('everforest').setup {
+      require("everforest").setup {
         -- Your config here
       }
-      vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#51B3EC', bold = true })
-      vim.api.nvim_set_hl(0, 'LineNr', { fg = 'white', bold = true })
-      vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#FB508F', bold = true })
       -- vim.cmd.colorscheme 'everforest'
     end,
   },
 
   -- Using lazy.nvim
   {
-    'ribru17/bamboo.nvim',
+    "ribru17/bamboo.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      require('bamboo').setup {
+      require("bamboo").setup {
         -- optional configuration here
       }
 
-      vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#51B3EC', bold = true })
-      vim.api.nvim_set_hl(0, 'LineNr', { fg = 'white', bold = true })
-      vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#FB508F', bold = true })
       -- require('bamboo').load()
     end,
   },
   {
-    'vague2k/vague.nvim',
+    "vague2k/vague.nvim",
     config = function()
-      require('vague').setup {
+      require("vague").setup {
         transparent = true, -- don't set background
         style = {
           -- "none" is the same thing as default. But "italic" and "bold" are also valid options
-          boolean = 'none',
-          number = 'none',
-          float = 'none',
-          error = 'none',
-          comments = 'italic',
-          conditionals = 'none',
-          functions = 'none',
-          headings = 'bold',
-          operators = 'none',
-          strings = 'italic',
-          variables = 'none',
+          boolean = "none",
+          number = "none",
+          float = "none",
+          error = "none",
+          comments = "italic",
+          conditionals = "none",
+          functions = "none",
+          headings = "bold",
+          operators = "none",
+          strings = "italic",
+          variables = "none",
 
           -- keywords
-          keywords = 'none',
-          keyword_return = 'none',
-          keywords_loop = 'none',
-          keywords_label = 'none',
-          keywords_exception = 'none',
+          keywords = "none",
+          keyword_return = "none",
+          keywords_loop = "none",
+          keywords_label = "none",
+          keywords_exception = "none",
 
           -- builtin
-          builtin_constants = 'none',
-          builtin_functions = 'none',
-          builtin_types = 'none',
-          builtin_variables = 'none',
+          builtin_constants = "none",
+          builtin_functions = "none",
+          builtin_types = "none",
+          builtin_variables = "none",
         },
         -- Override colors
         colors = {
-          bg = '#18191a',
-          fg = '#cdcdcd',
-          floatBorder = '#878787',
-          line = '#282830',
-          comment = '#646477',
-          builtin = '#bad1ce',
-          func = '#be8c8c',
-          string = '#deb896',
-          number = '#d2a374',
-          property = '#c7c7d4',
-          constant = '#b4b4ce',
-          parameter = '#b9a3ba',
-          visual = '#363738',
-          error = '#d2788c',
-          warning = '#e6be8c',
-          hint = '#8ca0dc',
-          operator = '#96a3b2',
-          keyword = '#7894ab',
-          type = '#a1b3b9',
-          search = '#465362',
-          plus = '#8faf77',
-          delta = '#e6be8c',
+          bg = "#18191a",
+          fg = "#cdcdcd",
+          floatBorder = "#878787",
+          line = "#282830",
+          comment = "#646477",
+          builtin = "#bad1ce",
+          func = "#be8c8c",
+          string = "#deb896",
+          number = "#d2a374",
+          property = "#c7c7d4",
+          constant = "#b4b4ce",
+          parameter = "#b9a3ba",
+          visual = "#363738",
+          error = "#d2788c",
+          warning = "#e6be8c",
+          hint = "#8ca0dc",
+          operator = "#96a3b2",
+          keyword = "#7894ab",
+          type = "#a1b3b9",
+          search = "#465362",
+          plus = "#8faf77",
+          delta = "#e6be8c",
         },
-        vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#51B3EC', bold = true }),
-        vim.api.nvim_set_hl(0, 'LineNr', { fg = 'white', bold = true }),
-        vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#FB508F', bold = true }),
         -- vim.cmd.colorscheme 'vague',
       }
     end,
   },
-  vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#51B3EC', bold = true }),
-  vim.api.nvim_set_hl(0, 'LineNr', { fg = 'white', bold = true }),
-  vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#FB508F', bold = true }),
+  -- vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#51B3EC', bold = true }),
+  -- vim.api.nvim_set_hl(0, 'LineNr', { fg = 'white', bold = true }),
+  -- vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#FB508F', bold = true }),
 }

@@ -59,7 +59,7 @@ format = 'at [$path]($style)[$read_only]($read_only_style) '
 # Shows current git branch
 [git_branch]
 symbol = ' '
-format = '[$symbol$branch]($style)'
+format = 'via [$symbol$branch]($style)'
 # truncation_length = 4
 truncation_symbol = '…/'
 style = 'bold green'

@@ -4,7 +4,7 @@ local keymap = vim.keymap -- for conciseness
 -- Unmap the 'q' key
 keymap.set("n", "q", "<Nop>", { noremap = true })
 -- Remap 'q' to 'vm'
-keymap.set("n", "<A-q>", "q", { desc = "Vim Macro-[Alt][q]" })
+keymap.set("n", "<A-q>", "q", { desc = "Vim Macro-[q][m]" })
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
@@ -139,12 +139,7 @@ vim.keymap.set("n", "<leader>xq", vim.diagnostic.setloclist, { desc = "Open diag
 --   { noremap = true, silent = true }
 -- )
 
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>td",
-  [[:TransparentToggle<CR>:lua vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#51B3EC', bold = true }) vim.api.nvim_set_hl(0, 'LineNr', { fg = 'white', bold = true }) vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#FB508F', bold = true })<CR>]],
-  { noremap = true, silent = true }
-)
+vim.api.nvim_set_keymap("n", "<leader>td", [[:TransparentToggle<CR>]], { noremap = true, silent = true })
 
 -- Restart LSP
 keymap.set("n", "<leader>rs", ":LspRestart<CR>", { desc = "[R]estart L[S]P" }) -- mapping to restart lsp if necessary

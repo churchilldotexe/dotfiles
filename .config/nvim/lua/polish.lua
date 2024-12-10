@@ -16,14 +16,3 @@ vim.filetype.add {
     ["~/%.config/foo/.*"] = "fooscript",
   },
 }
-
--- initially stop supermaven
-vim.cmd "SupermavenStop"
-
--- dadbod ui
-vim.keymap.set(
-  { "n", "x" },
-  "<leader>ldb",
-  "<cmd>Neotree close<cr><cmd>tabnew<cr><bar><bar><cmd>DBUI<cr>",
-  { desc = "[L]sp [D]ata[B]ase UI" }
-)

@@ -22,7 +22,7 @@ return {
     opts = {},
     config = function()
       require("lint").linters_by_ft = {
-        php = { "phpcs", "phpinsights" },
+        php = {},
         blade = { "htmlhint" },
       }
     end,

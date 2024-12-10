@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
   opts = {
     keymaps = {
-      accept_suggestion = "<C-l>",
+      accept_suggestion = "<C-e>", -- same with bash/zsh
       clear_suggestion = "<C-h>",
       accept_word = "<C-w>",
     },

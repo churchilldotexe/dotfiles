@@ -1,5 +1,5 @@
 local wezterm = require("wezterm")
-local bgOpacity = 0.75
+local bgOpacity = 0.90
 local act = wezterm.action
 
 wezterm.on("update-status", function(window, pane)
@@ -7,9 +7,11 @@ wezterm.on("update-status", function(window, pane)
 	if window:is_focused() then
 		overrides.color_scheme = "Kanagawa (Gogh)"
 		overrides.text_background_opacity = 1
+		overrides.font_size = 15
 	else
-		overrides.color_scheme = "Broadcast (Gogh)"
+		-- overrides.color_scheme = "Broadcast (Gogh)"
 		overrides.text_background_opacity = 0
+		overrides.font_size = 0
 	end
 	window:set_config_overrides(overrides)
 end)

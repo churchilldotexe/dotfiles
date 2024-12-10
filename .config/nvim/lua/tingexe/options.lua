@@ -48,7 +48,9 @@ opt.isfname:append "@-@"
 
 -- clipboard
 -- opt.clipboard:append 'unnamedplus' -- use system clipboard as default register
+opt.clipboard:append ""
 -- opt.clipboard = "unnamedplus,unnamed"
+opt.clipboard = "" -- or set to "" if you prefer
 
 -- Decrease update time
 opt.updatetime = 50
@@ -106,12 +108,15 @@ vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- options ---
-
+--
 -- Function to get the full path and replace the home directory with ~
-local function get_winbar_path()
-  local full_path = vim.fn.expand "%:p"
-  return full_path:gsub(vim.fn.expand "$HOME", "~")
-end
+-- local function get_winbar_path()
+--   local full_path = vim.fn.expand "%:p"
+--   return full_path:gsub(vim.fn.expand "$HOME", "~")
+-- end
+
+-- Function that get the current opened file
+local function get_current_file() return vim.fn.expand "%:t" end
 
 -- Function to get the number of open buffers using the :ls command
 local function get_buffer_count()
@@ -123,20 +128,31 @@ local function get_buffer_count()
   end
   return count
 end
+
 -- Function to update the winbar
 local function update_winbar()
-  local home_replaced = get_winbar_path()
+  -- local home_replaced = get_winbar_path()
   local buffer_count = get_buffer_count()
+  local current_file = get_current_file()
   vim.opt.winbar = "%#WinBar1#%m "
     .. "%#WinBar2#("
     .. buffer_count
     .. ") "
     .. "%#WinBar1#"
-    .. home_replaced
+    .. current_file
     .. "%*%=%#WinBar2#"
     .. vim.fn.systemlist("hostname")[1]
 end
+
+-- Highlight groups for the winbar
+vim.cmd [[
+  highlight WinBarBuffer guifg=#9CDCFE guibg=#22272E
+  highlight WinBarFile guifg=#C5C5C5 guibg=#22272E
+  highlight WinBarHost guifg=#6A9955 guibg=#22272E
+]]
+
 -- Autocmd to update the winbar on BufEnter and WinEnter events
-vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "BufNew" }, {
+  pattern = "*",
   callback = update_winbar,
 })

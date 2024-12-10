@@ -61,6 +61,12 @@ alias tx='tmux -u'
 # lazygit
 alias lg='lazygit'
 
+#------ php ------#
+alias pha='php artisan'
+## generate key
+alias pha:key-gen='php artisan key:generate'
+## laravel sails
+alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
 
 # Nix package manager Alias
 alias nix-switch='home-manager switch --flake ~/dotfiles/nix/#$USER'
