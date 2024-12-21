@@ -5,6 +5,7 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
+  { import = "astrocommunity.bars-and-lines.vim-illuminate" },
   -- { import = "astrocommunity.completion.blink-cmp" },
   -- { import = "astrocommunity.editing-support.auto-save-nvim" },
   { import = "astrocommunity.editing-support.conform-nvim" },

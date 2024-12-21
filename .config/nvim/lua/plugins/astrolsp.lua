@@ -1,5 +1,16 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+local customizations = {
+  { rule = "style/*", severity = "off", fixable = true },
+  { rule = "format/*", severity = "off", fixable = true },
+  { rule = "*-indent", severity = "off", fixable = true },
+  { rule = "*-spacing", severity = "off", fixable = true },
+  { rule = "*-spaces", severity = "off", fixable = true },
+  { rule = "*-order", severity = "off", fixable = true },
+  { rule = "*-dangle", severity = "off", fixable = true },
+  { rule = "*-newline", severity = "off", fixable = true },
+  { rule = "*quotes", severity = "off", fixable = true },
+  { rule = "*semi", severity = "off", fixable = true },
+}
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -45,6 +56,38 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+
+      eslintd = {
+        filetypes = {
+          "javascript",
+          "javascriptreact",
+          "javascript.jsx",
+          "typescript",
+          "typescriptreact",
+          "typescript.tsx",
+          "vue",
+          "html",
+          "markdown",
+          "json",
+          "jsonc",
+          "yaml",
+          "toml",
+          "xml",
+          "gql",
+          "graphql",
+          "astro",
+          "svelte",
+          "css",
+          "less",
+          "scss",
+          "pcss",
+          "postcss",
+        },
+        settings = {
+          -- Silent the stylistic rules in you IDE, but still auto fix them
+          rulesCustomizations = customizations,
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {
@@ -100,6 +143,10 @@ return {
     on_attach = function(client, bufnr)
       -- this would disable semanticTokensProvider for all clients
       -- client.server_capabilities.semanticTokensProvider = nil
+      -- vim.api.nvim_create_autocmd("BufWritePre", {
+      --   buffer = bufnr,
+      --   command = "EslintFixAll",
+      -- })
     end,
   },
 }

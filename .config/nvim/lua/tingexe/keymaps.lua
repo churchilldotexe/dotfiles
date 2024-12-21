@@ -114,6 +114,9 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "scroll half page up and stay s
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "scroll half page down and stay screen center" })
 vim.keymap.set("n", "<leader>j", "'", { desc = "[J]ump on marker" })
 
+-- [[ Miscellaneous ]]
+keymap.set("n", "<leader>miq", "diqhp i", { desc = "[M]isc [I]nsert inside [Q]outes" })
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
