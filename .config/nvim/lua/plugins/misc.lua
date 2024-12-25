@@ -10,6 +10,7 @@ return {
     },
     name = "registers",
   },
+  --[[
   {
     "leath-dub/snipe.nvim",
     keys = {
@@ -17,4 +18,5 @@ return {
     },
     opts = {},
   },
+  --]]
 }

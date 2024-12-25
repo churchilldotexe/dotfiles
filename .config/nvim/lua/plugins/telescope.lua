@@ -23,12 +23,12 @@ return {
 
       -- See `:help telescope.builtin`
       vim.keymap.set("n", "<leader>f.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-      -- vim.keymap.set(
-      --   "n",
-      --   "<leader><leader>",
-      --   "<cmd>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal theme=ivy<cr>",
-      --   { desc = "[ ] Find existing buffers" }
-      -- )
+      vim.keymap.set(
+        "n",
+        "<leader><leader>",
+        "<cmd>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal theme=ivy<cr>",
+        { desc = "[ ] Find existing buffers" }
+      )
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set("n", "<leader>/", function()
