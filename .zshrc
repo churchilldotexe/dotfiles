@@ -42,6 +42,9 @@ bindkey '^[[B' history-search-forward
 
 source /home/ting/.nix-profile/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source /home/ting/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /home/ting/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+plugins=(fast-syntax-highlighting zsh-autosuggestions zsh-autocomplete zsh-syntax-highlighting git)
 
 
 # ---- locales ---- # 

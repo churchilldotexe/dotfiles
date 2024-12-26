@@ -39,6 +39,8 @@
     # zsh
     zsh-autocomplete
     zsh-autosuggestions
+    zsh-syntax-highlighting
+    zsh-fast-syntax-highlighting
     # eza
     zoxide
     lsd
