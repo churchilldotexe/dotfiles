@@ -67,6 +67,8 @@ alias pha='php artisan'
 alias pha:key-gen='php artisan key:generate'
 ## laravel sails
 alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
+## php test
+alias pht='php artisan test'
 
 # Nix package manager Alias
 alias nix-switch='home-manager switch --flake ~/dotfiles/nix/#$USER'
