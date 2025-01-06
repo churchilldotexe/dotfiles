@@ -32,8 +32,11 @@
     tmux
     unzip
     xclip
+    wl-clipboard
     gcc
     gnumake
+    rustc
+    cargo
 
     #shell related pkgs
     # zsh
