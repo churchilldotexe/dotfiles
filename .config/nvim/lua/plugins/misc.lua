@@ -1,4 +1,5 @@
 return {
+  { "tpope/vim-abolish" },
   { "aaron-p1/match-visual.nvim" },
   {
     "tversteeg/registers.nvim",
