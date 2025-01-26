@@ -24,6 +24,7 @@ return {
   { import = "astrocommunity.lsp.nvim-lint" },
   { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
   { import = "astrocommunity.markdown-and-latex.peek-nvim" },
+  { import = "astrocommunity.media.codesnap-nvim" },
   { import = "astrocommunity.motion.flash-nvim" },
   { import = "astrocommunity.motion.marks-nvim" },
   { import = "astrocommunity.motion.mini-ai" },

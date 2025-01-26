@@ -5,7 +5,7 @@ return {
     keymaps = {
       accept_suggestion = "<C-e>", -- same with bash/zsh
       clear_suggestion = "<C-h>",
-      accept_word = "<C-w>",
+      accept_word = "<C-x>",
     },
 
     log_level = "warn",

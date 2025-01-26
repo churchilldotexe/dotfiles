@@ -10,6 +10,8 @@ export LC_ALL=en_US.UTF-8
 [[ -f ~/.zsh/nvm.zsh ]] && source ~/.zsh/nvm.zsh
 [[ -f ~/.zsh/wsl2fix.zsh ]] && source ~/.zsh/wsl2fix.zsh
 # [[ -f ~/.zsh/goto.zsh ]] && source ~/.zsh/goto.zsh
+# Source environment variables
+[ -f ~/.env ] && source ~/.zsh/.env
 
 export DISPLAY=:0
 # if youre using wsl
@@ -93,3 +95,4 @@ export PATH="/home/ting/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/ting/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 export FZF_DEFAULT_COMMAND='fd'
 . "/home/ting/.deno/env"
+

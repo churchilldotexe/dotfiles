@@ -35,7 +35,7 @@ keymap.set("n", "<leader>a", "a <Esc>h", { desc = "[A]ppend one whitespace forwa
 keymap.set("n", "<leader>i", "i <Esc>l", { desc = "[I]nsert one whitespace backward  " })
 
 -- Opening File Explorer
-vim.keymap.set({ "n", "x" }, "<leader>ef", function() vscode.call "workbench.view.explorer" end, { silent = true })
+vim.keymap.set({ "n", "x" }, "<leader>e", function() vscode.call "workbench.view.explorer" end, { silent = true })
 
 -- saving, closing, close and save a file
 vim.cmd "nmap <leader>ww :w<CR>"
@@ -64,9 +64,6 @@ vim.keymap.set("n", "<leader>bc", function() vscode.call "workbench.action.close
 ---    c* leader keybind    ------
 ----------------------------------
 
--- code action
-vim.keymap.set("n", "<leader>ca", function() vscode.call "editor.action.codeAction" end, { silent = true })
-
 -- go to symbols(variables)
 vim.keymap.set("n", "<leader>cs", function() vscode.call "workbench.action.gotoSymbol" end, { silent = true })
 
@@ -81,7 +78,7 @@ vim.keymap.set("n", "<leader>ff", function() vscode.call "workbench.action.quick
 -- vim.keymap.set("n", "<leader>ff", function() vscode.call "find-it-faster.findFiles" end, { silent = true })
 
 -- FindItFaster search word (search grep)
-vim.keymap.set("n", "<leader>fg", function() vscode.call "find-it-faster.findWithinFiles" end, { silent = true })
+vim.keymap.set("n", "<leader>fw", function() vscode.call "find-it-faster.findWithinFiles" end, { silent = true })
 
 -- command palettte
 vim.keymap.set("n", "<leader>fp", function() vscode.call "workbench.action.showCommands" end, { silent = true })
@@ -99,6 +96,9 @@ vim.keymap.set("n", "<leader>gl", function() vscode.call "editor.action.openLink
 ----------------------------------
 ---    l* leader keybind    ------
 ----------------------------------
+
+-- code action
+vim.keymap.set("n", "<leader>la", function() vscode.call "editor.action.codeAction" end, { silent = true })
 
 -- go to git(like lazy git)
 vim.keymap.set(

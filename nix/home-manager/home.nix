@@ -18,25 +18,25 @@
   targets.genericLinux.enable = true;
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
-    nerdfonts
-    fastfetch
-    neofetch
-    bottom
-    btop
+    #  nerdfonts
+    #  fastfetch
+    #   neofetch
+    #  bottom
+    #  btop
     kanata
 
     #essentials
-    git
-    gh
-    stow
-    tmux
-    unzip
-    xclip
-    wl-clipboard
-    gcc
-    gnumake
-    rustc
-    cargo
+    #  git
+    # gh
+    #   stow
+    #  tmux
+    #unzip
+    #xclip
+    #wl-clipboard
+    #gcc
+    # gnumake
+    # rustc
+    # cargo
 
     #shell related pkgs
     # zsh
@@ -45,32 +45,32 @@
     zsh-syntax-highlighting
     zsh-fast-syntax-highlighting
     # eza
-    zoxide
-    lsd
+    #zoxide
+    #lsd
     # oh-my-posh
-    starship
+    #starship
 
     #node and related pkgs
-    turso-cli
-    pnpm
-    yarn
-    bun
+    #turso-cli
+    #pnpm
+    #yarn
+    #bun
 
-    #yazi and related pkgs
-    yazi
-    ffmpegthumbnailer
-    imagemagick
-    p7zip
-    poppler
+    ####yazi and related pkgs
+    #yazi
+    #ffmpegthumbnailer
+    #imagemagick
+    #7zip
+    #poppler
 
     #neovim ralated pkgs
-    neovim
+    #neovim
     tree-sitter
-    gdu
-    lazygit
-    fd
-    ripgrep
-    fzf
+    #gdu
+    #lazygit
+    #fd
+    #ripgrep
+    #fzf
 
     #for nix syntax
     alejandra
@@ -88,12 +88,12 @@
   programs.home-manager.enable = true;
   programs = {
     fzf = {
-      enable = true;
+      enable = false;
       enableZshIntegration = true;
     };
 
     zoxide = {
-      enable = true;
+      enable = false;
       enableZshIntegration = true;
     };
   };
