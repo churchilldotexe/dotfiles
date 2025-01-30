@@ -11,7 +11,7 @@ export LC_ALL=en_US.UTF-8
 [[ -f ~/.zsh/wsl2fix.zsh ]] && source ~/.zsh/wsl2fix.zsh
 # [[ -f ~/.zsh/goto.zsh ]] && source ~/.zsh/goto.zsh
 # Source environment variables
-[ -f ~/.env ] && source ~/.zsh/.env
+[ -f ~/.env ] && source ~/.env
 
 export DISPLAY=:0
 # if youre using wsl
