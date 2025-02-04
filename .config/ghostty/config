@@ -1,0 +1,65 @@
+# font-family = OpenDyslexic Nerd Font
+font-family = Hasklug Nerd Font
+window-title-font-family = FantasqueSansM Nerd Font
+# font-famiy = BerkeeyMono Nerd Font
+#font-family = Iosevka Nerd Font
+# font-family = SFMono Nerd Font 
+font-size = 14
+theme = Kanagawa Wave
+shell-integration-features = no-cursor,sudo,no-title
+# adjust-cell-height = 35%
+# background-opacity = 0.96
+
+cursor-style = block
+cursor-style-blink = true
+cursor-click-to-move = true
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
+
+window-padding-balance = true 
+window-save-state = always
+window-vsync = false
+window-theme = system
+# window-titlebar-background = 1C2021 
+# window-titlebar-background = 00ff00 
+# window-colorspace = "display-p3"
+
+# keybindings
+keybind = super+s>r=reload_config
+keybind = super+s>x=close_surface
+
+keybind = super+s>n=new_window
+
+# tabs 
+keybind = super+s>c=new_tab
+keybind = super+s>shift+l=next_tab
+keybind = super+s>shift+h=previous_tab
+keybind = super+s>comma=move_tab:-1
+keybind = super+s>period=move_tab:1
+
+# quick tab switch
+keybind = super+s>1=goto_tab:1
+keybind = super+s>2=goto_tab:2
+keybind = super+s>3=goto_tab:3
+keybind = super+s>4=goto_tab:4
+keybind = super+s>5=goto_tab:5
+keybind = super+s>6=goto_tab:6
+keybind = super+s>7=goto_tab:7
+keybind = super+s>8=goto_tab:8
+keybind = super+s>9=goto_tab:9
+
+# split
+keybind = super+s>\=new_split:right
+keybind = super+s>-=new_split:down
+
+keybind = super+s>j=goto_split:bottom
+keybind = super+s>k=goto_split:top
+keybind = super+s>h=goto_split:left
+keybind = super+s>l=goto_split:right
+
+keybind = super+s>z=toggle_split_zoom
+
+keybind = super+s>e=equalize_splits
+
+# other
+copy-on-select = clipboard
