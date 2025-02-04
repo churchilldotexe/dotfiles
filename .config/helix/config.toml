@@ -3,6 +3,13 @@ theme = "kanagawa"
 [editor]
 line-number = "relative"
 mouse = false
+scrolloff = 10
+cursorline = true
+continue-comments = false
+bufferline ="multiple" 
+color-modes = true
+popup-border = "all"
+end-of-line-diagnostics = "hint"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -11,3 +18,31 @@ select = "underline"
 
 [editor.file-picker]
 hidden = false
+
+
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.lsp]
+display-progress-messages = true
+display-inlay-hints = true
+
+[editor.auto-save]
+focus-lost = true
+
+[editor.indent-guides]
+render = true
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 25 # increase value to reduce forced mid-word wrapping
+max-indent-retain = 0
+
+[editor.inline-diagnostics]
+cursor-line = "warning"

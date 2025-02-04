@@ -1,0 +1,111 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+    "key": "ctrl-h",
+    "command": "workbench.action.navigateLeft"
+  },
+  {
+    "key": "ctrl-l",
+    "command": "workbench.action.navigateRight"
+  },
+  {
+    "key": "ctrl-k",
+    "command": "workbench.action.navigateUp"
+  },
+  {
+    "key": "ctrl-j",
+    "command": "workbench.action.navigateDown"
+  },
+  {
+    "key": "space ,",
+    "command": "workbench.action.showAllEditors",
+    "when": "neovim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "space space",
+    "command": "workbench.action.quickOpen",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "space space",
+    "command": "workbench.action.quickOpen",
+    "when": "!inputFocus"
+  },
+    {
+    "key": "space e",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.toggleSidebarVisibility",
+        "workbench.action.focusActiveEditorGroup"
+      ]
+    },
+    // "when": " ( sideBarFocus && activeViewlet == 'workbench.view.explorer' ) && !inputFocus"
+    "when": "  !inputFocus"
+  },
+    {
+    "key": "space f f",
+    "command": "workbench.action.quickOpen",
+    "when": " !inputFocus"
+  },
+    {
+        "key": "space f w",
+        "command": "workbench.action.findInFiles",
+        "when": "  !inputFocus"
+    },
+
+    // command palette
+    {
+        "key": "space f p",
+        "command": "workbench.action.showCommands",
+        "when": "!inputFocus"
+    },
+
+// {
+//     "key": "space l g",
+//     "command": "workbench.scm.focus",
+//     "args":"scmInput",
+//     "when": " ( sideBarFocus && !extensionEditorFocus ) || !inputFocus"
+// },
+{
+    "key": "space l g",
+    "command": "workbench.scm.focus",
+    "args":"scmInput",
+    "when": "!inputFocus"
+},
+{
+    "key": "ctrl+n",
+    "command": "-workbench.action.files.newUntitledFile"
+},
+
+  {"args":"<C-m>","command": "vscode-neovim.send","key": "ctrl+m","when": "editorFocus && neovim.init"},
+    {
+        "args": "<CS-m>",
+        "command": "vscode-neovim.send",
+        "key": "ctrl+shift+m",
+        "when": "editorFocus && neovim.init"
+    },
+// {
+//     "key": "ctrl+x",
+//     "command": "workbench.action.closeWindow",
+//     "when":"inQuickOpen && neovim.mode != 'cmdline'"
+// }
+// open in split in explorer
+    {
+    "key": "s",
+    "command": "explorer.openToSide",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "shift-s",
+    "command": "runCommands",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus",
+    "args": {
+      "commands": [
+        "workbench.action.splitEditorDown",
+        "explorer.openAndPassFocus",
+        "workbench.action.closeOtherEditors"
+      ]
+    }
+  },
+]
