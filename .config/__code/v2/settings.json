@@ -43,6 +43,7 @@
   "workbench.activityBar.location": "hidden",
   // Typography
   "editor.fontFamily": "FantasqueSanM Nerd Font",
+  //"editor.fontFamily": "OpenDyslexic Nerd Font",
   "editor.suggestFontSize": 16,
   "editor.suggestLineHeight": 30,
   "terminal.integrated.lineHeight": 1.5,
@@ -52,7 +53,7 @@
   "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'calt', 'dlig'",
   "diffEditor.wordWrap": "on",
   "notebook.output.wordWrap": true,
-  "editor.fontSize": 15,
+  "editor.fontSize": 16,
   "editor.fontWeight": "400",
   "editor.padding.top": 16,
   "editor.cursorBlinking": "solid",
@@ -198,9 +199,18 @@
   "vscode-neovim.neovimInitVimPaths.linux": "/home/ting/.config/nvim/vsvim/init.lua",
   "git.openRepositoryInParentFolders": "never",
   "laravel-pint.enable": true,
-  "vscode_custom_css.imports": ["file:///home/ting/.config/__code/custom-vscode.css"],
+  "vscode_custom_css.imports": [
+    "file:///home/ting/.config/__code/custom-vscode.css"
+  ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.guides.bracketPairs": "active",
   "liveServer.settings.donotShowInfoMsg": true,
-  "roo-cline.allowedCommands": ["npm test", "npm install", "tsc", "git log", "git diff", "git show"]
+  "roo-cline.allowedCommands": [
+    "npm test",
+    "npm install",
+    "tsc",
+    "git log",
+    "git diff",
+    "git show"
+  ]
 }

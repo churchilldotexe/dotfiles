@@ -6,6 +6,9 @@ alias zsrc='source ~/.zshrc'
 # update and upgrade
 alias apt-sync='sudo bash -c "apt update && apt upgrade"'
 
+# alias for vscode
+# alias code="/home/ting/.local/bin/code"
+
 
 #
 # alias k="kubectl"

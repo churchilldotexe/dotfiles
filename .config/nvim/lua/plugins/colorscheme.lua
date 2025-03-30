@@ -2,32 +2,6 @@ return {
 
   { "xiyaowong/transparent.nvim" },
   {
-    "sho-87/kanagawa-paper.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-    config = function()
-      require("kanagawa-paper").setup {
-        undercurl = true,
-        transparent = false,
-        gutter = true,
-        dimInactive = true, -- disabled when transparent
-        terminalColors = true,
-        commentStyle = { italic = true },
-        functionStyle = { italic = false },
-        keywordStyle = { italic = false, bold = false },
-        statementStyle = { italic = false, bold = false },
-        typeStyle = { italic = false },
-        colors = { theme = {}, palette = {} }, -- override default palette and theme colors
-        overrides = function() -- override highlight groups
-          return {}
-        end,
-      }
-
-      -- vim.cmd "colorscheme kanagawa-paper"
-    end,
-  },
-  {
     "rebelot/kanagawa.nvim",
     enabled = true,
     lazy = false,
@@ -91,7 +65,6 @@ return {
       }
       -- setup must be called before loading
       vim.cmd "colorscheme kanagawa"
-      -- vim.cmd.colorscheme "catppuccin"
     end,
   },
 
@@ -107,81 +80,6 @@ return {
         -- Your config here
       }
       -- vim.cmd.colorscheme 'everforest'
-    end,
-  },
-
-  -- Using lazy.nvim
-  {
-    "ribru17/bamboo.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("bamboo").setup {
-        -- optional configuration here
-      }
-
-      -- require('bamboo').load()
-    end,
-  },
-  {
-    "vague2k/vague.nvim",
-    config = function()
-      require("vague").setup {
-        transparent = true, -- don't set background
-        style = {
-          -- "none" is the same thing as default. But "italic" and "bold" are also valid options
-          boolean = "none",
-          number = "none",
-          float = "none",
-          error = "none",
-          comments = "italic",
-          conditionals = "none",
-          functions = "none",
-          headings = "bold",
-          operators = "none",
-          strings = "italic",
-          variables = "none",
-
-          -- keywords
-          keywords = "none",
-          keyword_return = "none",
-          keywords_loop = "none",
-          keywords_label = "none",
-          keywords_exception = "none",
-
-          -- builtin
-          builtin_constants = "none",
-          builtin_functions = "none",
-          builtin_types = "none",
-          builtin_variables = "none",
-        },
-        -- Override colors
-        colors = {
-          bg = "#18191a",
-          fg = "#cdcdcd",
-          floatBorder = "#878787",
-          line = "#282830",
-          comment = "#646477",
-          builtin = "#bad1ce",
-          func = "#be8c8c",
-          string = "#deb896",
-          number = "#d2a374",
-          property = "#c7c7d4",
-          constant = "#b4b4ce",
-          parameter = "#b9a3ba",
-          visual = "#363738",
-          error = "#d2788c",
-          warning = "#e6be8c",
-          hint = "#8ca0dc",
-          operator = "#96a3b2",
-          keyword = "#7894ab",
-          type = "#a1b3b9",
-          search = "#465362",
-          plus = "#8faf77",
-          delta = "#e6be8c",
-        },
-        -- vim.cmd.colorscheme 'vague',
-      }
     end,
   },
   -- vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#51B3EC', bold = true }),
@@ -239,5 +137,61 @@ return {
         },
       },
     },
+  },
+
+  {
+    "vague2k/vague.nvim",
+    config = function()
+      require("vague").setup {
+        -- optional configuration here
+        transparent = true,
+        style = {
+          -- "none" is the same thing as default. But "italic" and "bold" are also valid options
+          boolean = "none",
+          number = "none",
+          float = "none",
+          error = "none",
+          comments = "none",
+          conditionals = "none",
+          functions = "none",
+          headings = "bold",
+          operators = "none",
+          strings = "none",
+          variables = "none",
+
+          -- keywords
+          keywords = "none",
+          keyword_return = "none",
+          keywords_loop = "none",
+          keywords_label = "none",
+          keywords_exception = "none",
+
+          -- builtin
+          builtin_constants = "none",
+          builtin_functions = "none",
+          builtin_types = "none",
+          builtin_variables = "none",
+        },
+        colors = {
+          func = "#bc96b0",
+          keyword = "#787bab",
+          -- string = "#d4bd98",
+          string = "#8a739a",
+          -- string = "#f2e6ff",
+          -- number = "#f2e6ff",
+          -- string = "#d8d5b1",
+          number = "#8f729e",
+          -- type = "#dcaed7",
+        },
+
+        -- vim.cmd.colorscheme "vague",
+      }
+    end,
+  },
+  {
+    "jnurmine/Zenburn",
+  },
+  {
+    "RRethy/base16-nvim",
   },
 }

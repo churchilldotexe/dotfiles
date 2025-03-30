@@ -13,6 +13,7 @@ export LC_ALL=en_US.UTF-8
 # Source environment variables
 [ -f ~/.env ] && source ~/.env
 
+
 export DISPLAY=:0
 # if youre using wsl
 # export BROWSER=~/.local/bin/wsl-browser
@@ -96,3 +97,10 @@ export PHP_INI_SCAN_DIR="/home/ting/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 export FZF_DEFAULT_COMMAND='fd'
 . "/home/ting/.deno/env"
 
+
+# bun completions
+[ -s "/home/ting/.bun/_bun" ] && source "/home/ting/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

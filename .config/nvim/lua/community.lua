@@ -29,9 +29,10 @@ return {
   { import = "astrocommunity.motion.marks-nvim" },
   { import = "astrocommunity.motion.mini-ai" },
   { import = "astrocommunity.motion.nvim-surround" },
-  { import = "astrocommunity.neovim-lua-development.lazydev-nvim" },
+  -- { import = "astrocommunity.neovim-lua-development.lazydev-nvim" },
   { import = "astrocommunity.pack.astro" },
   { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.cs-omnisharp" },
   { import = "astrocommunity.pack.full-dadbod" },
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.json" },
@@ -50,6 +51,6 @@ return {
   { import = "astrocommunity.syntax.vim-cool" },
   { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.utility.hover-nvim" },
-  { import = "astrocommunity.workflow.hardtime-nvim" },
+  -- { import = "astrocommunity.workflow.hardtime-nvim" },
   -- import/override with your plugins folder
 }

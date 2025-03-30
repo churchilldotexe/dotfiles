@@ -56,6 +56,22 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      ts_ls = {
+        filetypes = {
+          "javascript",
+          "javascriptreact",
+          "javascript.jsx",
+          "typescript",
+          "typescriptreact",
+          "typescript.tsx",
+          -- "html",
+        },
+      },
+      htmll = {
+        filetypes = {
+          "html",
+        },
+      },
 
       eslintd = {
         filetypes = {

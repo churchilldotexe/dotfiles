@@ -1,0 +1,27 @@
+# [language-server.vscode-html-language-server]
+# command = "vscode-html-language-server"
+
+# [[language]]
+# name = "html"
+# file-types = ["html", "js"]
+# formatter= {command = "prettier" }
+# indent = {tab-width = 2, unit = " "}
+# language-servers =[{ name = "vscode-html-language-server", except-features = [ "format" ] }, { name = "typescript-language-server", except-features = [ "format" ] }, "efm-lsp-prettier" ]
+#  
+# [[language]]
+# name = "typescript"
+# language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "efm-lsp-prettier" ]
+
+
+[[language]]
+name = "html"
+language-servers = [ "vscode-html-language-server" ]
+formatter = { command = "prettier", args = ["--parser", "html"] }
+auto-format = true
+
+
+[[language]]
+name = "javascript"
+language-servers = [ "typescript-language-server" ]
+formatter = { command = "prettier", args = ["--parser", "babel"] }
+auto-format = true

@@ -115,6 +115,7 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 --   return full_path:gsub(vim.fn.expand "$HOME", "~")
 -- end
 
+--[[
 -- Function that get the current opened file
 local function get_current_file() return vim.fn.expand "%:t" end
 
@@ -151,8 +152,11 @@ vim.cmd [[
   highlight WinBarHost guifg=#6A9955 guibg=#22272E
 ]]
 
+--[[
 -- Autocmd to update the winbar on BufEnter and WinEnter events
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "BufNew" }, {
   pattern = "*",
   callback = update_winbar,
 })
+
+]]

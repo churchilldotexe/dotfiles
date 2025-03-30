@@ -1,10 +1,11 @@
-# font-family = OpenDyslexic Nerd Font
-font-family = Hasklug Nerd Font
+font-family = FantasqueSansM Nerd Font
+# font-family = OpenDyslexicMono Nerd Font
+# font-family = Hasklug Nerd Font
 window-title-font-family = FantasqueSansM Nerd Font
 # font-famiy = BerkeeyMono Nerd Font
 #font-family = Iosevka Nerd Font
 # font-family = SFMono Nerd Font 
-font-size = 14
+font-size = 15
 theme = Kanagawa Wave
 shell-integration-features = no-cursor,sudo,no-title
 # adjust-cell-height = 35%

@@ -48,7 +48,7 @@ TERM = "xterm-256color"
 # TERM: screen-256color
 
 [font]
-size = 15
+size = 14
 
 [font.normal]
 # fc-list | grep -i "Meslo"
@@ -71,6 +71,7 @@ size = 15
 # family = "MesloLGSDZ Nerd Font Mono"
 # family = "MesloLGSDZ Nerd Font Propo"
 family = "FantasqueSansM Nerd Font"
+# family = "OpenDyslexicMono Nerd Font"
 style = "Regular"
 # style = "Bold Italic"
 # style = "Bold"
