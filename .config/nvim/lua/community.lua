@@ -14,7 +14,7 @@ return {
   { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.git.gitgraph-nvim" },
   { import = "astrocommunity.icon.mini-icons" },
-  { import = "astrocommunity.lsp.delimited-nvim" },
+  -- { import = "astrocommunity.lsp.delimited-nvim" },
   { import = "astrocommunity.lsp.garbage-day-nvim" },
   { import = "astrocommunity.lsp.inc-rename-nvim" },
   -- { import = "astrocommunity.lsp.lsp-lens-nvim" },
