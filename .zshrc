@@ -1,7 +1,5 @@
 fastfetch
 
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 
 # aliases for .zsh folder
 [[ -f ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
@@ -104,3 +102,10 @@ export FZF_DEFAULT_COMMAND='fd'
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# sqlcmd 
+export PATH="$PATH:/opt/mssql-tools/bin"
+
+#dotnet 
+export PATH=$HOME/dotnet:$PATH
+export DOTNET_ROOT=$HOME/dotnet

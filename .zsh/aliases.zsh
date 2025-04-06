@@ -75,3 +75,8 @@ alias pht='php artisan test'
 
 # Nix package manager Alias
 alias nix-switch='home-manager switch --flake ~/dotfiles/nix/#$USER'
+
+#---docker---#
+alias d='docker'
+alias ds1='docker start sql1'
+
