@@ -1,0 +1,175 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+" OPTIONS
+set relativenumber  " Show relative line numbers
+set incsearch       " Incremental search
+set ignorecase      " Ignore case in searches
+set smartcase       " But be smart about it
+set hlsearch
+set cursorline
+
+" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=10
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+
+" KEYMAPS
+" Set leader key to space
+let mapleader=" "
+
+nnoremap <Esc> :nohlsearch<CR>
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap <leader>raw :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left><CR>
+
+" source file
+nnoremap <leader>src :source ~/.ideavimrc<CR>:nohlsearch<CR>
+
+" saving, closing, close and save a file
+nnoremap <leader>ww :w<CR>
+" nnoremap <leader>ww :action ReformatwithPrettier<CR>
+nnoremap <leader>wq :wq!<CR>
+nnoremap <leader>qq :qa!<CR>
+
+" Copy paste and delete mappings
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
+xnoremap <leader>P "_dP
+vnoremap <leader>p "+p
+nnoremap <leader>p "+p
+nnoremap <leader>dd "_d
+vnoremap <leader>dd "_d
+nnoremap x "_x
+
+"creating new line that stays in NORMAL MODE
+nnoremap <leader>o o<Esc>
+nnoremap <leader>O O<Esc>
+
+
+" pane
+nnoremap <leader>\| <C-w>v
+nnoremap <leader>- <C-w>s
+nnoremap <leader>w= <C-w>=
+nnoremap <leader>wx <cmd>close<CR>
+
+" tab
+nnoremap <tab><tab> :tabnew<CR>
+nnoremap <tab>x :tabclose<CR>
+nnoremap <tab>n :tabn<CR>
+nnoremap <tab>p :tabp<CR>
+nnoremap <tab>f :tabnew %<CR>
+
+" insert mode navigation (without leaving insert mode)
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+
+inoremap <A-h> <C-Left>
+inoremap <A-j> <C-Down>
+inoremap <A-k> <C-Up>
+inoremap <A-l> <C-Right>
+
+" visual mode mapping
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+" normal mode mapping
+nnoremap J mzJ`z
+nnoremap <leader>a a <Esc>h
+nnoremap <leader>i i <Esc>l
+" Remap for dealing with word wrap
+" This requires conditional expressions, which are supported, but the
+" specific expression might need adjustment.
+" nnoremap k v:count == 0 ? 'gk' : 'k'
+" nnoremap j v:count == 0 ? 'gj' : 'j'
+
+nnoremap k gk
+nnoremap j gj
+
+" Page navigation
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+nnoremap <leader>j '
+
+" Map <leader><leader> to open Recent Files (buffers list)
+map <leader><leader> <Action>(RecentFiles)
+
+" Map <leader>ff to open the Goto File dialog (find files)
+map <leader>ff <Action>(GotoFile)
+
+map <leader>fp <Action>(FindAction)
+
+" PLUGINS
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+map s <Action>(flash.search)
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+Plug 'tpope/vim-surround'
+Plug 'echasnovski/mini.ai'
+Plug 'dbakker/vim-paragraph-motion'
+set functiontextobj
+set which-key
+set quickscope
+set matchit
+Plug 'justinmk/vim-sneak'
+
+"" - Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Ma \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+"Nerd tree
+Plug 'preservim/nerdtree'
+
+map <leader>e :NERDTreeToggle<CR>
+
+let g:NERDTreeMapActivateNode = 'l'
+let g:NERDTreeMapCloseDir = 'h'
+
+" Remap the delete command: map 'dd' to delete the current node
+let g:NERDTreeMapDelete = 'dd'
+
+" Remap file creation: map 'o' to create a new file
+let g:NERDTreeMapNewFile = 'o'
+
+" Optionally, remap directory creation to a different key (e.g. 'O')
+let g:NERDTreeMapNewDi = 'O'
+
+" Harpoon 
+
+" HarpoonIJ mappings for IdeaVim
+
+" Map <leader>ha to add the current file to Harpoon (equivalent to Alt+a)
+nmap <leader>ha :action AddToHarpoon<CR>
+
+" Map <leader>he to toggle the Harpoon quick menu (equivalent to Alt+e)
+nmap <leader>he :action ShowHarpoon<CR>
+
+" Map <leader>1 to <leader>5 to navigate to the harpooned files
+nmap <leader>1 :action GotoHarpoon1<CR>
+nmap <leader>2 :action GotoHarpoon2<CR>
+nmap <leader>3 :action GotoHarpoon3<CR>
+nmap <leader>4 :action GotoHarpoon4<CR>
+nmap <leader>5 :action GotoHarpoon5<CR>
