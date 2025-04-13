@@ -1,0 +1,97 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+      "space e": "workspace::ToggleLeftDock",
+      "space S": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      // "j k": ["workspace::SendKeystrokes", "escape"]
+    }
+  },
+  {
+    "context": "Editor && edit_prediction",
+    "bindings": {
+      // Here we also allow `alt-enter` to accept the prediction
+      "ctrl-y": "editor::AcceptEditPrediction"
+    }
+  },
+  {
+    "context": "vim_mode == normal || vim_mode == visual",
+    "bindings": {
+      "s": "vim::PushSneak",
+      "shift-s": "vim::PushSneakBackward"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      // "space w w": "editor::Save",
+      // "space w q": "editor::SaveAndClose",
+      "space y": "editor::Copy",
+      // "space Y": "editor::CopyLine",
+      "space p": "editor::Paste",
+      "space d d": "editor::Delete",
+      // "space e": "workspace::ToggleLeftDock",
+      "space w w": "workspace::Save",
+      "space q q": "zed::Quit",
+      "space w x": "pane::CloseActiveItem",
+      "space b c": "pane::CloseInactiveItems",
+      // "x": "editor::DeleteCharacter",
+      // "space o": "editor::AppendLineBelow",
+      // "space O": "editor::PrependLineAbove",
+      // "space |": "workspace::SplitVertical",
+      // "space -": "workspace::SplitHorizontal",
+      // "space w =": "workspace::EqualizePanes",
+      // "space w x": "workspace::ClosePane",
+      // "tab tab": "workspace::NewTab",
+      // "tab x": "workspace::CloseTab",
+      // "tab n": "workspace::NextTab",
+      // "tab p": "workspace::PreviousTab",
+      // "tab f": "workspace::NewTabWithCurrentFile",
+      "space f f": "file_finder::Toggle",
+      "space space": "tab_switcher::Toggle"
+      // "space f f": "projects::GotoFile",
+      // "space f p": "editor::Find",
+      // "space e": "projects::ToggleFileExplorer",
+      // "k": "editor::MoveUpInWrappedLines",
+      // "j": "editor::MoveDownInWrappedLines",
+      // "ctrl-u": "editor::ScrollUpHalfPage",
+      // "ctrl-d": "editor::ScrollDownHalfPage"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "space y": "editor::Copy",
+      "space p": "editor::Paste",
+      "space d d": "editor::Delete"
+      // "J": "editor::MoveLinesDown",
+      // "K": "editor::MoveLinesUp"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "ctrl-h": "editor::MoveLeft",
+      "ctrl-j": "editor::MoveDown",
+      "ctrl-k": "editor::MoveUp",
+      "ctrl-l": "editor::MoveRight",
+      // "alt-h": "editor::MoveWordLeft",
+      "alt-j": "editor::MoveDown",
+      "alt-k": "editor::MoveUp"
+      // "alt-l": "editor::MoveWordRight"
+    }
+  }
+]

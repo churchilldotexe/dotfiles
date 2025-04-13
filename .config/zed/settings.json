@@ -1,0 +1,71 @@
+{
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "assistant": {
+    "default_model": {
+      "provider": "deepseek",
+      "model": "deepseek-reasoner"
+    },
+    "version": "2"
+  },
+  "theme": "Kanagawa Dragon",
+  "vim_mode": true,
+  "vim": {
+    "highlight_on_yank_duration": 1,
+    "use_smartcase_find": true,
+    "enable_sneak": true,
+    "enable_smartcase": true
+  },
+  "formatter": {
+    "external": {
+      "command": "prettier",
+      "arguments": ["--stdin-filepath", "{buffer_path}"]
+    }
+  },
+  "relative_line_numbers": true,
+  "format_on_save": "on",
+  "languages": {
+    // "HTML": {
+    //   "enable_language_server": true,
+    //   "lsp": {
+    //     "html-language-server": {
+    //       "settings": {
+    //         // (Optional) add any HTML-specific LSP settings here
+    //       }
+    //     }
+    //   }
+    // },
+    //   "JavaScript": {
+    //     "enable_language_server": true,
+    //     "lsp": {
+    //       "typescript-language-server": {
+    //         "settings": {
+    //           // (Optional) add any JS/TS-specific LSP settings here
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+    "JavaScript": {
+      "enable_language_server": true,
+      "lsp": {
+        "typescript-language-server": {
+          "settings": {
+            "typescript": {
+              "validate": { "enable": true }, // Ensure validation is enabled
+              "tsdk": null // Optional: Specify a specific TypeScript SDK path if needed
+            },
+            "javascript": {
+              "validate": { "enable": true }
+            },
+            "files.associations": {
+              // Add this section
+              "*.html": "javascript" // Treat .html files as JavaScript for LSP purposes
+            }
+          }
+        }
+      }
+    }
+  }
+}
